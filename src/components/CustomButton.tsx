@@ -8,18 +8,22 @@ interface CustomButtonProps extends ButtonProps {
   active?: boolean;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({
-  variant,
-  size,
-  active,
-  ...props
-}) => {
-  const baseStyles = "transition-colors duration-200 ease-in-out ";
-  const activeStyles = active ? "" : "bg-gray-300 text-gray-500 cursor-not-allowed";
+const CustomButton = (props: CustomButtonProps) => {
+  const { variant, size, active = true, children, ...rest } = props;
+  const baseStyles = "transition-colors duration-200 ease-in-out";
+  const activeStyles = active
+    ? ""
+    : "bg-gray-300 text-gray-500 cursor-not-allowed";
 
   return (
-    <Button className={clsx(baseStyles, activeStyles)} variant={variant} size={size} {...props} disabled={!active}>
-      {props.children}
+    <Button
+      className={clsx(baseStyles, activeStyles)}
+      variant={variant}
+      size={size}
+      {...rest}
+      disabled={!active}
+    >
+      {children}
     </Button>
   );
 };
