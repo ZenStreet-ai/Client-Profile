@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -66,4 +68,135 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  height: 100vh; /* Full viewport height */
+}
+
+.content {
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+.button-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  background-color: white;
+  border: none;
+  padding: 10px;
+}
+
+button.button-selected {
+  background-color: #516E8A;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-1 {
+  width: 25.69px;
+  height: 25.69px;
+  background: #1F86D0;
+}
+
+.icon-2 {
+  width: 21.69px;
+  height: 15.5px;
+  background: #1F86D0;
+}
+
+.icon-3 {
+  width: 21.4px;
+  height: 21.4px;
+  background: #1F86D0;
+}
+
+.icon-selected {
+  background: white;
+}
+
+.button-wrapper span {
+  margin-top: 5px;
+  color: #000;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  background-color: #1F86D0;
+}
+
+.icon-1 {
+  width: 25.69px;
+  height: 25.69px;
+}
+
+.icon-2 {
+  width: 21.69px;
+  height: 15.5px;
+}
+
+.icon-3 {
+  width: 21.4px;
+  height: 21.4px;
+}
+
+.icon-selected {
+  background-color: white;
+}
+
+button.btn {
+  padding: 10px;
+  border: none;
+}
+
+.therapy-opt{
+  padding: 10px;
+}
+
+.therapy-btn{
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.therapy-mode{
+  color: #516E8A;
+  font-weight: 600;
+}
+
+/* styles.css */
+.ther-bold {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.therapy-center{
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+}
+
+.therapy-left{
+  display: flex;
+  justify-content:start;
+  padding-left: 10%;
+  padding-top: 2%;
 }
