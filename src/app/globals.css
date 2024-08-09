@@ -177,11 +177,15 @@ button.btn {
 .therapy-mode{
   color: #516E8A;
   font-weight: 600;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 5px;
 }
 
 /* styles.css */
 .ther-bold {
   font-weight: 500;
+  padding: 1%;
   font-size: 30px;
 }
 
@@ -196,4 +200,30 @@ button.btn {
   justify-content:start;
   padding-left: 10%;
   padding-top: 2%;
+}
+
+.btn-opt{
+  border-radius: 30px;
+  margin: 10px;
+  width: 15%;
+}
+
+.filter-title{
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 10px; /* Gap between buttons */
+}
+
+.slots {
+  margin-bottom: 20px; /* Space between sections */
+}
+
+.therapy-mode {
+  margin-bottom: 10px; /* Space between heading and buttons */
 }
