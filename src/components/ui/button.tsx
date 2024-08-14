@@ -25,7 +25,7 @@ const buttonVariants = cva(
         primary: "rounded-[25px] px-24 py-[12px]",
         secondary: "rounded-md px-[8rem] py-[8px]",
         sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        lg: "h-11 rounded-2xl px-8",
         icon: "h-10 w-10",
       },
     },
