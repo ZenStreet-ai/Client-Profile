@@ -7,10 +7,18 @@ import timingsData from './timings.json';
 import InPerson from './assets/inPerson';
 import Call from './assets/Call';
 import Video from './assets/Video';
+import ConfirmBookingComponent from './booking';
+
 
 const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
   const [selectedButton, setSelectedButton] = useState(1);
   const [filterBtn, setFilterBtn] = useState(4);
+  const [showPopup, setShowPopup] = useState(false);
+  const [slot, setSlot] = useState();
+
+  const handleConfirmBooking = () => {
+    setShowPopup(true);
+  };
 
   const handleClick = (buttonId) => {
     setSelectedButton(buttonId);
@@ -137,6 +145,23 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
           style={{display: filterBtn ===5?'block':'none'}}
         />
       </div>
+      <div className="therapy-center">
+      <Button
+          className="confirm-btn"
+          onClick={handleConfirmBooking}
+          style={{
+            backgroundColor: 'green',
+            color: 'white',
+            marginTop: '20px'
+          }}
+        >
+          Confirm Booking
+        </Button>
+        {showPopup && (
+          <ConfirmBookingComponent dateTime={date} showPopup={showPopup} />
+        )}
+      </div>
+      
     </div>
   );
 };
