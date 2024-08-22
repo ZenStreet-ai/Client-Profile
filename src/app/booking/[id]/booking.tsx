@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -14,8 +14,23 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
 const ConfirmBookingComponent: React.FC<{ dateTime: Date }> = ({ dateTime }) => {
+  const[showPopup, setShowPopup] = useState(false);
+  const handleConfirmBooking = () => {
+    setShowPopup(true);
+  };
   return (
     <div>
+      <Button
+          className="confirm-btn"
+          onClick={handleConfirmBooking}
+          style={{
+            backgroundColor: 'green',
+            color: 'white',
+            marginTop: '20px'
+          }}
+        >
+          Confirm Booking
+        </Button>
         <Dialog open={showPopup} onOpenChange={setShowPopup}>
           <DialogContent>
             <DialogHeader>
