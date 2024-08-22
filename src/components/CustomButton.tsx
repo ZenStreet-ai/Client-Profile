@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, ButtonProps } from "./ui/button";
+import { Button, type ButtonProps } from "./ui/button";
 import clsx from "clsx";
 
 interface CustomButtonProps extends ButtonProps {
-  variant?: "primary" | "secondary";
-  size?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "outline";
+  size?: "primary" | "secondary" | "lg";
   active?: boolean;
 }
 
