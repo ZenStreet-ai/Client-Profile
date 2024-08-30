@@ -32,54 +32,61 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
       <Progress value={33} />
       <h1 className="ther-bold">Select therapy mode</h1>
       <div className='therapy-center'>
-        <Button
-          onClick={() => handleClick(1)}
-          style={{
-            backgroundColor: selectedButton === 1 ? '#1F9FE6' : 'transparent',
-            borderColor: '#1F9FE6',
-            borderRadius: '12px', 
-            width: '8%',
-            height: '120px',
-            margin: '0 10px',
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
-          <InPerson btn={selectedButton} />
-          <span className='therapy-mode' style={{ color:selectedButton === 1 ? 'white':'#516E8A', }}>In-Person</span>
-        </Button>
-        <Button
-          onClick={() => handleClick(2)}
-          style={{
-            backgroundColor: selectedButton === 2 ? '#1F9FE6' : 'transparent',
-            borderColor: '#1F9FE6',
-            borderRadius: '12px', 
-            width: '8%',
-            height: '120px',
-            margin: '0 10px',
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
-          <Video btn={selectedButton} />
-          <span className='therapy-mode' style={{ color:selectedButton === 2 ? 'white':'#516E8A', }}>Video</span>
-        </Button>
-        <Button
-          onClick={() => handleClick(3)}
-          style={{
-            backgroundColor: selectedButton === 3 ? '#1F9FE6' : 'transparent',
-            borderColor: '#1F9FE6',
-            borderRadius: '12px', 
-            width: '8%',
-            height: '120px',
-            margin: '0 10px',
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
-          <Call btn={selectedButton} />
-          <span className='therapy-mode' style={{ color:selectedButton === 3 ? 'white':'#516E8A', }}>Call</span>
-        </Button>
+      <Button
+        onClick={() => handleClick(1)}
+        style={{
+          backgroundColor: selectedButton === 1 ? '#1F9FE6' : 'transparent',
+          borderColor: '#1F9FE6',
+          borderRadius: '12px', 
+          width: '100%', // 100% width on mobile
+          height: '80px', // Adjusted height for mobile
+          margin: '10px 0', // Adjusted margin for mobile
+          display: "flex",
+          flexDirection: "column",
+          alignItems: 'center', // Center content
+          justifyContent: 'center', // Center content
+        }}
+      >
+        <InPerson btn={selectedButton} />
+        <span className='therapy-mode' style={{ color: selectedButton === 1 ? 'white' : '#516E8A' }}>In-Person</span>
+      </Button>
+      <Button
+        onClick={() => handleClick(2)}
+        style={{
+          backgroundColor: selectedButton === 2 ? '#1F9FE6' : 'transparent',
+          borderColor: '#1F9FE6',
+          borderRadius: '12px', 
+          width: '100%', // 100% width on mobile
+          height: '80px', // Adjusted height for mobile
+          margin: '10px 0', // Adjusted margin for mobile
+          display: "flex",
+          flexDirection: "column",
+          alignItems: 'center', // Center content
+          justifyContent: 'center', // Center content
+        }}
+      >
+        <Video btn={selectedButton} />
+        <span className='therapy-mode' style={{ color: selectedButton === 2 ? 'white' : '#516E8A' }}>Video</span>
+      </Button>
+      <Button
+        onClick={() => handleClick(3)}
+        style={{
+          backgroundColor: selectedButton === 3 ? '#1F9FE6' : 'transparent',
+          borderColor: '#1F9FE6',
+          borderRadius: '12px', 
+          width: '100%', // 100% width on mobile
+          height: '80px', // Adjusted height for mobile
+          margin: '10px 0', // Adjusted margin for mobile
+          display: "flex",
+          flexDirection: "column",
+          alignItems: 'center', // Center content
+          justifyContent: 'center', // Center content
+        }}
+      >
+        <Call btn={selectedButton} />
+        <span className='therapy-mode' style={{ color: selectedButton === 3 ? 'white' : '#516E8A' }}>Call</span>
+      </Button>
+
       </div>
 
       <div className='therapy-left'>
