@@ -1,6 +1,8 @@
 import React from "react";
 import { cn } from "@shadcn/ui";
-import { Input, Label, Error } from "@shadcn/ui"; // Assuming these components are available in the library
+import { Error } from "@shadcn/ui"; // Assuming these components are available in the library
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 interface CustomInputProps {
   label: string;

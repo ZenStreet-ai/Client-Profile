@@ -1,0 +1,21 @@
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    height: 4px; /* Height for mobile */
+  }
+  
+  .progress-bar-fill {
+    background-color: #1F9FE6; /* Blue color for progress */
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+  
+  @media (min-width: 769px) {
+    .progress-bar-container {
+      display: none; /* Hide on larger screens */
+    }
+  }
+  

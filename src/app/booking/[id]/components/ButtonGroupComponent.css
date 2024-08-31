@@ -1,0 +1,260 @@
+.therapy-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.therapy-center {
+  display: flex;
+  flex-direction: row; /* Arrange buttons in a row */
+  gap: 10px; /* Space between buttons */
+  width: 100%;
+  justify-content: center; /* Center buttons horizontally */
+}
+
+.therapy-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Space between therapy buttons and location */
+}
+
+.ther-bold {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.55px;
+  text-align: left; /* Align text to the left */
+  margin-bottom: 10px; /* Space below heading */
+}
+
+.therapy-mode {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.94px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #004E87;
+  margin-top: 8px;
+}
+
+.therapy-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 12px; /* Rounded on all sides */
+  width: 123px;
+  height: 123px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-align: center;
+  opacity: 1;
+}
+
+.therapy-button.selected {
+  background-color: #1F9FE6; /* Background color for selected button */
+}
+
+.therapy-icon {
+  color: #004E87; /* Default icon color */
+  margin-bottom: 8px;
+}
+
+.therapy-button.selected .therapy-icon {
+  color: white; /* Icon color when button is selected */
+}
+
+.progress-bar {
+  display: none;
+  height: 4px;
+}
+
+@media (max-width: 768px) {
+  .progress-bar {
+    display: block; /* Show on mobile */
+  }
+}
+
+.ther-btn-container {
+  display: flex;
+  gap: 10px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.selected-button {
+  background-color: #1F9FE6;
+  color: white;
+  opacity: 1;
+}
+
+.selected-filter {
+  background-color: #1F9FE6;
+  color: white;
+}
+
+.selected-slot {
+  background-color: black;
+  color: white;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  width: 1024.38px;
+  height: 590px;
+  margin: 0 auto;
+}
+
+.color-box {
+  display: flex;
+  align-items: center;
+  background-color: #00A3FF;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5.13px 0px 0px 0px;
+  width: fit-content;
+  height: 20.52px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.color-box span {
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.left-aligned-heading {
+  text-align: left;
+  width: 100%; /* Ensure it takes the full width of its container */
+  padding-left: 10px; /* Optional: Add some left padding for spacing */
+}
+
+.filter-options {
+  margin-bottom: 20px; /* Space below filter options */
+}
+
+.filter-options .ther-bold {
+  text-align: left; /* Align the heading text to the left */
+  margin-bottom: 10px; /* Space between heading and buttons */
+}
+
+.filter-options .therapy-center {
+  display: flex;
+  flex-direction: row; /* Arrange filter buttons in a row */
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-start; /* Align buttons to the left */
+}
+
+.filter-options .therapy-center Button {
+  width: 220px;
+  height: 57px;
+  padding: 14px 20px;
+  gap: 10px;
+  border-radius: 50px; /* Fully rounded corners */
+  background: white; /* Background color for unselected button */
+  color: black; /* Text color for unselected button */
+  opacity: 1; /* Full opacity */
+  border: none; /* Remove any border */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.filter-options .therapy-center Button.selected-filter {
+  background: black; /* Selected background color */
+  color: white; /* Selected text color */
+}
+
+.select-time-date {
+  margin-bottom: 20px; /* Space below time/date selection */
+}
+
+.select-time-date .ther-bold {
+  text-align: left; /* Align the heading text to the left */
+  margin-bottom: 10px; /* Space between heading and buttons */
+}
+
+.select-time-date .therapy-center {
+  display: flex;
+  flex-direction: row; /* Arrange time/date buttons in a row */
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-start; /* Align buttons to the left */
+}
+
+.select-time-date .therapy-center Button {
+  width: 220px;
+  height: 57px;
+  padding: 14px 20px;
+  gap: 10px;
+  border-radius: 50px; /* Fully rounded corners */
+  background: white; /* Background color for unselected button */
+  color: black; /* Text color for unselected button */
+  opacity: 1; /* Full opacity */
+  border: none; /* Remove any border */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.select-time-date .therapy-center Button.selected-filter {
+  background: black; /* Selected background color */
+  color: white; /* Selected text color */
+}
+
+/* Add these styles to ButtonGroupComponent.css */
+
+/* Add these styles to ButtonGroupComponent.css */
+
+.slot-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  gap: 10px; /* Space between rows */
+}
+
+.slot-grid-section {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  width: 100%;
+  justify-content: flex-start; /* Align buttons to the left */
+}
+
+.slots-row {
+  display: flex;
+  gap: 20px; /* Space between grids */
+  width: 100%;
+  justify-content: flex-start; /* Align grids to the left */
+}
+
+.slot-header {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #0000008F; /* Set the header color */
+}
+
+.slot-grid-section Button.selected {
+  background-color: black;
+  color: white;
+}
