@@ -1,3 +1,5 @@
+/* General Styles */
+
 .therapy-opt {
   display: flex;
   flex-direction: column;
@@ -9,14 +11,49 @@
   flex-direction: row; /* Arrange buttons in a row */
   gap: 10px; /* Space between buttons */
   width: 100%;
-  justify-content: center; /* Center buttons horizontally */
+  justify-content: center; 
 }
 
 .therapy-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 20px; /* Space between therapy buttons and location */
+  align-items: flex-start; /* Align items to the left */
+  margin-top: 0px; /* Remove any top margin */
+}
+
+.location-container {
+  display: flex; 
+  gap: 10px; /* Space between items */
+  margin-left: 10px; /* Ensure no margin on the left */
+  justify-content: center;
+}
+
+.loc-left{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 50%;
+  width: 90%;
+  gap: 6px;
+}
+
+.span-t {
+  font-family: Inter;
+  margin-top: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  letter-spacing: -0.02em;
+  text-align: left; /* Align text to the left */
+  color: #888888; /* Set text color */
+}
+
+.therapy-center.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left-aligns the items */
+  width: 100%;
+  padding-left: 10px; /* Optional: Add some left padding */
+  margin-top: 0; /* Removes the gap at the top */
 }
 
 .ther-bold {
@@ -26,7 +63,6 @@
   line-height: 24px;
   letter-spacing: -0.55px;
   text-align: left; /* Align text to the left */
-  margin-bottom: 10px; /* Space below heading */
 }
 
 .therapy-mode {
@@ -53,6 +89,7 @@
   margin-bottom: 10px;
   text-align: center;
   opacity: 1;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 .therapy-button.selected {
@@ -88,8 +125,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px 10px;
 }
+
 
 .selected-button {
   background-color: #1F9FE6;
@@ -118,7 +156,8 @@
   background-color: white;
   width: 1024.38px;
   height: 590px;
-  margin: 0 auto;
+  margin: 40px auto;
+  margin-bottom: 40px;
 }
 
 .color-box {
@@ -150,20 +189,21 @@
 }
 
 .filter-options {
-  margin-bottom: 20px; /* Space below filter options */
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%; /* Ensure the container takes full width */
 }
 
 .filter-options .ther-bold {
-  text-align: left; /* Align the heading text to the left */
-  margin-bottom: 10px; /* Space between heading and buttons */
+  text-align: left; /* Explicitly left-align the heading */
 }
 
 .filter-options .therapy-center {
   display: flex;
-  flex-direction: row; /* Arrange filter buttons in a row */
-  gap: 10px;
-  width: 100%;
-  justify-content: flex-start; /* Align buttons to the left */
+  justify-content: center; /* Center the buttons */
+  width: 100%; /* Ensure the button container takes the full width */
+  margin-bottom: 20px;
 }
 
 .filter-options .therapy-center Button {
@@ -219,42 +259,154 @@
   color: white; /* Selected text color */
 }
 
-/* Add these styles to ButtonGroupComponent.css */
-
-/* Add these styles to ButtonGroupComponent.css */
-
 .slot-grid {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
-  gap: 10px; /* Space between rows */
+  margin: 10px 20px 50px 30px;
+  gap: 10px; /* Space between rows */;
 }
 
 .slot-grid-section {
   display: flex;
-  gap: 10px; /* Space between buttons */
+  gap: 20px; /* Space between buttons */
   width: 100%;
   justify-content: flex-start; /* Align buttons to the left */
 }
 
 .slots-row {
   display: flex;
-  gap: 20px; /* Space between grids */
+  /* gap: 20px;  */
   width: 100%;
   justify-content: flex-start; /* Align grids to the left */
 }
 
 .slot-header {
-  font-family: Inter;
+  /* font-family: Inter; */
+  margin-bottom: 5px;
   font-size: 16px;
   font-weight: 600;
   line-height: 19.36px;
   text-align: left;
-  margin-bottom: 10px;
-  color: #0000008F; /* Set the header color */
+  color: #0000008F;
 }
 
 .slot-grid-section Button.selected {
   background-color: black;
   color: white;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .therapy-center {
+    flex-direction: column; /* Stack buttons vertically on mobile */
+  }
+
+  .therapy-left {
+    align-items: center; /* Center items on mobile */
+  }
+
+  .therapy-mode {
+    font-size: 12px;
+  }
+
+  .therapy-button {
+    width: 100px;
+    height: 100px;
+  }
+
+  .calendar-container {
+    width: 100%; /* Make calendar take full width on mobile */
+    height: auto;
+    padding: 10px;
+  }
+
+  .color-box {
+    width: 100%; /* Make color box take full width */
+    height: auto;
+    margin-bottom: 10px;
+    text-align: center; /* Center text on mobile */
+  }
+
+  .select-time-date .therapy-center {
+    flex-direction: column; /* Stack time/date buttons vertically on mobile */
+    gap: 5px;
+  }
+
+  .filter-options .therapy-center {
+    flex-direction: column; /* Stack filter buttons vertically on mobile */
+    gap: 5px;
+  }
+
+  .select-time-date .therapy-center Button,
+  .filter-options .therapy-center Button {
+    width: 100%; /* Make buttons take full width on mobile */
+    padding: 12px 16px; /* Adjust padding for smaller screens */
+  }
+
+  .slot-grid {
+    gap: 5px; /* Reduce the gap between rows on mobile */
+  }
+
+  .slot-grid-section {
+    flex-direction: column; /* Stack slot buttons vertically on mobile */
+    gap: 5px;
+  }
+
+  .slots-row {
+    flex-direction: column; /* Stack grids vertically on mobile */
+    gap: 10px;
+  }
+
+  .slot-header {
+    font-size: 14px; /* Adjust font size for mobile */
+    line-height: 17px;
+  }
+
+  .therapy-button {
+    width: 100px; /* Smaller buttons for mobile */
+    height: 100px;
+  }
+
+  .calendar-container {
+    width: 100%; /* Full width on mobile */
+    height: auto; /* Adjust height for mobile */
+    padding: 10px;
+    margin: 0 auto; /* Center the calendar container */
+  }
+
+  .color-box {
+    font-size: 12px; /* Adjust font size for mobile */
+    padding: 8px 12px; /* Adjust padding */
+    text-align: center; /* Center the text */
+  }
+
+  .therapy-opt {
+    margin: 10px 0; /* Adjust margin for mobile */
+    padding: 10px; /* Add padding for mobile */
+  }
+
+  .therapy-icon {
+    margin-bottom: 6px; /* Adjust icon margin for mobile */
+  }
+
+  .button-container {
+    margin: 8px 0; /* Adjust margins for mobile */
+  }
+
+  .ther-btn-container {
+    gap: 8px; /* Reduce gap for mobile */
+  }
+
+  .select-time-date {
+    margin-bottom: 15px; /* Adjust margin for mobile */
+  }
+
+  .left-aligned-heading {
+    padding-left: 5px; /* Adjust padding for mobile */
+  }
+
+  .filter-options .ther-bold,
+  .select-time-date .ther-bold {
+    margin-bottom: 8px; /* Adjust margin for headings */
+  }
 }
