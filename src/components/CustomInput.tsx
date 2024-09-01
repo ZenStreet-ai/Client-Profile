@@ -1,6 +1,7 @@
 import React from "react";
-import { cn } from "@shadcn/ui";
-import { Input, Label, Error } from "@shadcn/ui"; // Assuming these components are available in the library
+import { Input } from "./ui/input";
+import {Label} from "./ui/label"
+import {Toast} from "./ui/toast"
 
 interface CustomInputProps {
   label: string;
@@ -27,12 +28,12 @@ const CustomInput: React.FC<CustomInputProps> = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={cn(
-          "border rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500",
-          error ? "border-red-500" : "border-gray-300"
-        )}
+        className={
+          `border rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ${error ? "border-red-500" : "border-gray-300"}`
+        }
       />
-      {error && <Error className="text-red-500 text-sm">{error}</Error>}
+      {error && <Toast className="text-red-500 text-sm">{error}</Toast>}
     </div>
   );
 };
