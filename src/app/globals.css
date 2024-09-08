@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -10,10 +12,10 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 213, 100%, 32%, 1;
+    --secondary: 209, 100%, 50%, 1;
+    --secondary-foreground: 360, 100%, 100%, 1;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
@@ -22,7 +24,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -38,7 +40,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -50,7 +52,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 224.3 76.3% 48%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -66,4 +68,162 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  height: 100vh; /* Full viewport height */
+}
+
+.content {
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+.button-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  background-color: white;
+  border: none;
+  padding: 10px;
+}
+
+button.button-selected {
+  background-color: #516E8A;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-1 {
+  width: 25.69px;
+  height: 25.69px;
+  background: #1F86D0;
+}
+
+.icon-2 {
+  width: 21.69px;
+  height: 15.5px;
+  background: #1F86D0;
+}
+
+.icon-3 {
+  width: 21.4px;
+  height: 21.4px;
+  background: #1F86D0;
+}
+
+.icon-selected {
+  background: white;
+}
+
+.button-wrapper span {
+  margin-top: 5px;
+  color: #000;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  background-color: #1F86D0;
+}
+
+.icon-1 {
+  width: 25.69px;
+  height: 25.69px;
+}
+
+.icon-2 {
+  width: 21.69px;
+  height: 15.5px;
+}
+
+.icon-3 {
+  width: 21.4px;
+  height: 21.4px;
+}
+
+.icon-selected {
+  background-color: white;
+}
+
+button.btn {
+  padding: 10px;
+  border: none;
+}
+
+.therapy-opt{
+  padding: 10px;
+}
+
+.therapy-btn{
+  
+}
+
+.therapy-mode{
+  color: #516E8A;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+/* styles.css */
+.ther-bold {
+  font-weight: 500;
+  padding: 1%;
+  font-size: 30px;
+}
+
+.therapy-center{
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+}
+
+.therapy-left{
+  display: flex;
+  justify-content:start;
+  padding-left: 10%;
+  padding-top: 2%;
+}
+
+.btn-opt{
+  border-radius: 30px;
+  margin: 10px;
+  width: 15%;
+}
+
+.filter-title{
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 10px; /* Gap between buttons */
+}
+
+.slots {
+  margin-bottom: 20px; /* Space between sections */
+}
+
+.therapy-mode {
+  margin-bottom: 10px; /* Space between heading and buttons */
 }
