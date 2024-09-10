@@ -1,6 +1,5 @@
-import React from 'react';
+import { QuotesMobile } from '@/assets/icons';
 import { Card, CardContent } from '@/components/ui/card';
-import { Quotes } from '@/assets/icons';
 
 export interface TestimonialProps {
     id: number;
@@ -10,13 +9,13 @@ export interface TestimonialProps {
 
 const Testimonial = ({ quote, author }: TestimonialProps) => {
     return (
-        <Card className="w-64 h-44 flex flex-col bg-white shadow-xl">
+        <Card className="w-[148px] h-[144px] flex flex-col bg-white shadow-2xl">
             <CardContent className="p-4 flex flex-col h-full">
-                <div className="flex justify-start mb-2">
-                    <Quotes />
+                <div className="flex justify-start">
+                    <QuotesMobile />
                 </div>
-                <p className="text-sm pl-3 mb-2 flex-grow">&quot;{quote}&quot;</p>
-                <p className="text-xs text-gray-600">{author}</p>
+                <p className="text-[11px] pl-3 mb-1 flex-grow">&quot;{quote}&quot;</p>
+                <p className="text-[8.46px] text-gray-600">{author}</p>
             </CardContent>
         </Card>
     );
@@ -26,12 +25,12 @@ interface TestimonialWrapperProps {
     testimonials: TestimonialProps[];
 }
 
-const TestimonialWrapper = ({ testimonials }: TestimonialWrapperProps) => {
+const TestimonialWrapperMobile = ({ testimonials }: TestimonialWrapperProps) => {
     return (
-        <div className="w-full h-[409px]">
-            <h2 className='text-[24px] leading-9 p-3'>Client Testimonials</h2>
+        <div className="w-full h-[409px] py-3">
+            <h2 className='text-[11px] leading-5'>Client Testimonials</h2>
             <div className="">
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-y-3">
                     {testimonials.map((testimonial) => (
                         <Testimonial key={testimonial.id} {...testimonial} />
                     ))}
@@ -41,4 +40,4 @@ const TestimonialWrapper = ({ testimonials }: TestimonialWrapperProps) => {
     );
 };
 
-export default TestimonialWrapper;
+export default TestimonialWrapperMobile;
