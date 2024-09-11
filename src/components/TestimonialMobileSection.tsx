@@ -14,7 +14,7 @@ const Testimonial = ({ quote, author }: TestimonialProps) => {
                 <div className="flex justify-start">
                     <QuotesMobile />
                 </div>
-                <p className="text-[11px] pl-3 mb-1 flex-grow">&quot;{quote}&quot;</p>
+                <p className="text-[9px] pl-3 mb-1 flex-grow">&quot;{quote}&quot;</p>
                 <p className="text-[8.46px] text-gray-600">{author}</p>
             </CardContent>
         </Card>
@@ -28,9 +28,9 @@ interface TestimonialWrapperProps {
 const TestimonialWrapperMobile = ({ testimonials }: TestimonialWrapperProps) => {
     return (
         <div className="w-full h-[409px] py-3">
-            <h2 className='text-[11px] leading-5'>Client Testimonials</h2>
-            <div className="">
-                <div className="flex flex-wrap gap-y-3">
+            <h2 className='text-[15px] leading-5'>Client Testimonials</h2>
+            <div className="py-3">
+                <div className="flex flex-wrap gap-3">
                     {testimonials.map((testimonial) => (
                         <Testimonial key={testimonial.id} {...testimonial} />
                     ))}

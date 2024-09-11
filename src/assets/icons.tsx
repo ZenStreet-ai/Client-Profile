@@ -121,7 +121,7 @@ const Quotes = () => {
 
 const QuotesMobile = () => {
   return (
-    <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M5.29289 1.29291L6.70711 2.70712L3 6.41423V7.00001H7V14H1V5.5858L5.29289 1.29291Z" fill="#19b0f0" />
       <path d="M15 7.00001H11V6.41423L14.7071 2.70712L13.2929 1.29291L9 5.5858V14H15V7.00001Z" fill="#19b0f0" />
     </svg>
@@ -162,5 +162,6 @@ const InPerson = () => {
     </svg>
   )
 }
+
 export { BlueTick, Calendar, Certificate, Document, Envelope, Facebook, GraduateCap, InPerson, People, Phone, Quotes, Twitter, Whatsapp , QuotesMobile };
 
