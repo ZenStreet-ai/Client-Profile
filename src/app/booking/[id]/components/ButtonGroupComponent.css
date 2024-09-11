@@ -298,160 +298,69 @@
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .therapy-center {
-    flex-direction: column; /* Stack elements vertically on mobile */
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
 
-  .therapy-left {
-    align-items: center; /* Center align for mobile */
-  }
-
-  .therapy-mode {
-    font-size: 12px; /* Smaller font size for mobile */
-  }
-
-  .therapy-button {
-    width: var(--small-button-size); /* Smaller button size for mobile */
-    height: var(--small-button-size);
-  }
-
-  .calendar-container {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Automatic height for mobile */
-    padding: 10px; /* Padding adjustment for mobile */
-    margin: 20px auto; /* Adjust margin for mobile */
-  }
-
-  .color-box {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Automatic height for mobile */
-    margin-bottom: 10px;
-    text-align: center; /* Center text on mobile */
-    font-size: 12px; /* Smaller font size for mobile */
-    padding: 8px 12px; /* Padding adjustment for mobile */
-  }
-
-  .filter-options .therapy-center {
-    flex-direction: column; /* Stack filter buttons vertically on mobile */
-    gap: 5px;
-  }
-
-  .filter-options .therapy-center Button {
-    width: 100%; /* Full width on mobile */
-    padding: 12px 16px; /* Adjust padding for mobile */
-  }
-
-  .select-time-date .therapy-center {
-    flex-direction: column; /* Stack time/date buttons vertically on mobile */
-    gap: 5px;
-  }
-
-  .select-time-date .therapy-center Button {
-    width: 100%; /* Full width on mobile */
-    padding: 12px 16px; /* Adjust padding for mobile */
-  }
-
-  .slot-grid {
-    gap: 5px; /* Smaller gap for mobile */
-  }
-
+  /* Adjust the container for the slots */
   .slot-grid-section {
-    flex-direction: column; /* Stack sections vertically on mobile */
-    gap: 5px;
+    flex-direction: column; /* Stack slots vertically */
+    gap: 10px; /* Add space between slots */
+    width: 100%; /* Ensure the slots take full width */
+    display: flex; /* Flex display to arrange elements */
+    justify-content: flex-start; /* Align the slots to the start */
+    padding: 0 10px; /* Add padding to avoid screen edge overflow */
+    margin: 0 auto; /* Center the container horizontally */
+    box-sizing: border-box; /* Include padding in element's total width */
   }
 
+  /* Slot rows should also be in a column */
   .slots-row {
-    flex-direction: column; /* Stack slots vertically on mobile */
-    gap: 10px;
+    flex-direction: column; /* Stack slots in a column */
+    gap: 10px; /* Add space between the slots */
+    width: 100%; /* Ensure full width */
+    display: flex; /* Ensure slots are displayed properly */
+    margin: 0 auto; /* Center the slot rows */
+    padding: 0 10px; /* Add padding to avoid screen edge overflow */
   }
 
-  .slot-header {
-    font-size: 14px; /* Smaller font size for mobile */
-    line-height: 17px;
+  /* Slot button styling */
+  .slot-grid-section Button {
+    width: 80%; /* Scale down the button size to 80% */
+    height: auto; /* Maintain aspect ratio by setting height to auto */
+    padding: 8px 10px; /* Adjust padding for smaller buttons */
+    background-color: white; /* Ensure background color */
+    color: black; /* Ensure text color */
+    border-radius: 8px; /* Adjust rounding for smaller buttons */
+    border: 1px solid #ccc; /* Add a border to make slots visible */
+    text-align: left; /* Align text to the left */
+    display: block; /* Ensure buttons are block-level */
+    box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
   }
 
-  .therapy-opt {
-    margin: 10px 0; /* Adjust margin for mobile */
-    padding: 10px; /* Adjust padding for mobile */
+  /* Style selected slot */
+  .slot-grid-section Button.selected {
+    background-color: var(--secondary-color); /* Selected background color */
+    color: var(--text-color); /* Text color for selected slot */
   }
 
-  .therapy-icon {
-    margin-bottom: 6px; /* Adjust margin for mobile */
+  /* Ensure button size and padding remain consistent on mobile */
+  .filter-options .therapy-center Button,
+  .select-time-date .therapy-center Button {
+    width: 80%; /* Scale down buttons */
+    height: auto; /* Maintain aspect ratio */
+    padding: 10px 12px; /* Adjust padding for mobile */
+    margin-bottom: 10px; /* Add margin for better spacing */
+    box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
   }
 
-  .button-container {
-    margin: 8px 0; /* Adjust margin for mobile */
-  }
-
-  .ther-btn-container {
-    gap: 8px; /* Smaller gap for mobile */
-  }
-
+  /* Adjust container widths to prevent horizontal scrolling */
+  .filter-options,
+  .calendar-container,
+  .slot-grid,
   .select-time-date {
-    margin-bottom: 15px; /* Adjust margin for mobile */
+    width: 100%;
+    padding: 0 10px; /* Add padding to avoid screen edge overflow */
+    box-sizing: border-box; /* Include padding in element's total width */
   }
-
-  .left-aligned-heading {
-    padding-left: 5px; /* Adjust padding for mobile */
-  }
-
-  .filter-options .ther-bold,
-  .select-time-date .ther-bold {
-    margin-bottom: 8px; /* Adjust margin for mobile */
-  }
-}
-
-/* ButtonGroupComponent.css */
-.mobile-progress-bar {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .mobile-progress-bar {
-    display: block;
-  }
-}
-
-.custom-calendar {
-  width: 100%;
-  border: none;
-}
-
-/* Remove red color from weekend dates */
-.custom-calendar .react-calendar__month-view__days__day--weekend {
-  color: inherit; /* Inherit the color from the parent, removing red */
-}
-
-/* Ensure all tiles (dates) are square */
-.custom-calendar .react-calendar__tile {
-  width: 40px; /* Set equal width and height for all tiles */
-  height: 40px;
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove any margin that may cause uneven shape */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box; /* Ensure padding and borders are included in the element's total size */
-}
-
-/* Make the selected date fully circular */
-.custom-calendar .react-calendar__tile--active {
-  background-color: #0085D0; /* Your desired background color */
-  color: white; /* Text color */
-  border-radius: 50%; /* Fully round */
-  height: 40px; /* Equal height and width for a perfect circle */
-  width: 40px; /* Equal height and width for a perfect circle */
-  padding: 0; /* Remove any padding to avoid oval shapes */
-  margin: 0; /* Remove margins */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease; /* Smooth transition effect */
-  box-sizing: border-box; /* Ensure padding and borders are included in the element's total size */
-}
-
-/* Optional: Add hover effect for the selected date */
-.custom-calendar .react-calendar__tile--active:hover {
-  background-color: #006bbf; /* Slightly darker blue on hover */
-  transform: scale(1.1); /* Slightly larger on hover */
 }
