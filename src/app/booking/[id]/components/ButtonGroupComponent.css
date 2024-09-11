@@ -390,6 +390,13 @@
     color: var(--text-color);
   }
 
+  .slots-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
   .filter-options .therapy-center Button,
   .select-time-date .therapy-center Button {
     width: auto;
