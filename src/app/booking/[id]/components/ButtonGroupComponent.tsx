@@ -16,6 +16,7 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
   const [filterOption, setFilterOption] = useState<'slot' | 'date'>('slot');
   const [slot, setSlot] = useState<string | undefined>(undefined);
   const [date, setDate] = useState<Date | undefined>(undefined);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const handleClick = (buttonId: number) => {
     setSelectedButton(buttonId);
@@ -79,6 +80,30 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
       
       <div className='filter-options'>
         <h1 className="ther-bold">Filter by</h1>
+        {isMobile ? (
+        // Render radio buttons for mobile view
+        <div className="therapy-center">
+          <label>
+            <input
+              type="radio"
+              value="slot"
+              checked={filterOption === 'slot'}
+              onChange={() => setFilterOption('slot')}
+            />
+            Slot
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="date"
+              checked={filterOption === 'date'}
+              onChange={() => setFilterOption('date')}
+            />
+            Date
+          </label>
+        </div>
+      ) : (
+        // Render regular buttons for non-mobile view
         <div className='therapy-center'>
           <Button
             onClick={() => setFilterOption('slot')}
@@ -93,6 +118,7 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
             Date
           </Button>
         </div>
+      )}
       </div>
 
       {filterOption === 'slot' && (
