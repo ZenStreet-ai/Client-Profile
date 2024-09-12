@@ -320,6 +320,15 @@
     box-sizing: border-box;
   }
 
+  .loc-left {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 50%;
+    width: 90%;
+    gap: 6px;
+    margin-top: 20px;
+  }
+
   .ther-bold{
     width: 100%;
     height: 94.32px;
@@ -408,4 +417,47 @@
   html, body {
     overflow-x: hidden;
   }
+
+  /* Style settings for the Proceed button */
+.buttonProceed {
+  background-color: #0085D0;
+  color: white;
+  width: 100%; /* Make button width 100% in mobile mode */
+  max-width: 881px; /* Keep the max width */
+  height: 64px;
+  padding: 14px 0;
+  gap: 10px;
+  border-radius: 12px;
+  opacity: 1;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Style for the button when disabled */
+.buttonDisabled {
+  background-color: #B7B7B7;
+  color: white;
+  width: 100%;
+  max-width: 881px;
+  height: 64px;
+  padding: 14px 0;
+  gap: 10px;
+  border-radius: 12px;
+  opacity: 0.5;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 }

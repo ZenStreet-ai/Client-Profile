@@ -10,6 +10,7 @@ import Location from '../assets/Location';
 import ConfirmBookingComponent from './bookingConfirmation';
 import 'react-calendar/dist/Calendar.css';
 import './ButtonGroupComponent.css';
+import { useRouter } from 'next/navigation';
 
 const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
   const [selectedButton, setSelectedButton] = useState<number>(1);
@@ -17,7 +18,7 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
   const [slot, setSlot] = useState<string | undefined>(undefined);
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
+  const router = useRouter();
   const handleClick = (buttonId: number) => {
     setSelectedButton(buttonId);
   };
@@ -416,7 +417,21 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
         </div>
       )}
       
-      <ConfirmBookingComponent selectedSlot={slot} selectedDate={date} />
+      {!isMobile ? (
+        <ConfirmBookingComponent selectedSlot={slot} selectedDate={date} />
+      ) : (
+        <>
+          <button
+            onClick={()=>{
+              router.push('/bookingConfirmation');
+            }}
+            className={`buttonProceed ${!(slot && date) ? 'buttonDisabled' : ''}`} // Disable if either slot or date is not selected
+            disabled={!(slot && date)} // Disable button if both slot and date are not selected
+          >
+            Proceed
+          </button>
+        </>
+      )}
     </div>
   );
 };
