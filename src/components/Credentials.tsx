@@ -1,5 +1,4 @@
-import { Document, GraduateCap, People } from "@/assets/icons";
-import { Calendar } from "lucide-react";
+import { Calendar, Certificate, Document, GraduateCap, People } from "@/assets/icons";
 
 const credentials = [
 	{
@@ -19,7 +18,7 @@ const credentials = [
 	},
 	{
 		id: 4,
-		icon: <Document />,
+		icon: <Certificate />,
 		title: "Certified Cognitive Behavioral Therapist (CBT)",
 	},
 	{
@@ -36,13 +35,13 @@ const credentials = [
 
 const Credentials = () => {
 	return (
-		<div className="p-6 max-w-lg mx-auto">
-			<h2 className="text-2xl font-bold mb-4">Credentials</h2>
-			<ul className="space-y-4">
+		<div>
+			<h2 className="leading-5 text-[24px]">Credentials</h2>
+			<ul className="space-y-4 pt-4">
 				{credentials.map((credential) => (
-					<li key={credential.id} className="flex items-start space-x-2">
-						<span className="text-blue-500 text-2xl">{credential.icon}</span>
-						<p className="text-gray-700">{credential.title}</p>
+					<li key={credential.id} className="flex items-start space-x-[14px]">
+						<span className="text-[#516E8A] text-[18px] leading-5">{credential.icon}</span>
+						<p className="text-[#516E8A]">{credential.title}</p>
 					</li>
 				))}
 			</ul>
