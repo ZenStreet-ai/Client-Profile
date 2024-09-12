@@ -1,7 +1,16 @@
+'use client'
+
 import React from 'react';
+import { useRouter } from 'next/navigation'; // Import useRouter for navigation
 import styles from './Confirmation.module.css'; // Using CSS module
 
 const ConfirmationPage: React.FC = () => {
+  const router = useRouter(); // Initialize the router
+
+  const handleBackToHome = () => {
+    router.push('/profile/abcd'); // Navigate to /profile
+  };
+
   return (
     <div className={styles.confirmationContainer}>
       {/* Heading */}
@@ -23,7 +32,7 @@ const ConfirmationPage: React.FC = () => {
       </div>
 
       {/* Back to Home Button */}
-      <button className={styles.backHomeBtn}>
+      <button className={styles.backHomeBtn} onClick={handleBackToHome}>
         Back to Home
       </button>
     </div>

@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@/components/ui/progress";
+import { useRouter } from 'next/navigation'; // Import useRouter for navigation
 
 const MobileBookingConfirmation = ({ selectedSlot, selectedDate }) => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,8 @@ const MobileBookingConfirmation = ({ selectedSlot, selectedDate }) => {
     message: '',
   });
 
+  const router = useRouter(); // Initialize the router for navigation
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,8 +24,9 @@ const MobileBookingConfirmation = ({ selectedSlot, selectedDate }) => {
   };
 
   const handleProceed = () => {
-    // Handle the proceed action
+    // Proceed to the confirmation route
     console.log('Proceeding with booking', formData);
+    router.push('/booking/confirmation'); // Navigate to the confirmation page
   };
 
   return (
