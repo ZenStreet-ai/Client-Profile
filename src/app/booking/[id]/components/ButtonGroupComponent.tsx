@@ -423,7 +423,7 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
         <>
           <button
             onClick={()=>{
-              router.push('/bookingConfirmation');
+              router.push('/booking/bookingConfirmation');
             }}
             className={`buttonProceed ${!(slot && date) ? 'buttonDisabled' : ''}`} // Disable if either slot or date is not selected
             disabled={!(slot && date)} // Disable button if both slot and date are not selected
