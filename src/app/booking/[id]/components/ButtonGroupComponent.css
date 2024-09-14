@@ -44,7 +44,7 @@
 .loc-left {
   display: flex;
   justify-content: flex-start;
-  margin-left: 50%;
+  margin-left: 70%;
   width: 90%;
   gap: 6px;
 }
@@ -330,19 +330,28 @@
   color: var(--text-color);
 }
 
-.slot-grid {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 20px 50px 30px;
+.slot-grid-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
   gap: 10px;
+  width: 100%;
+  justify-items: center; /* Centers the buttons */
 }
 
-.slot-grid-section {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  justify-content: flex-start;
+.slot-grid {
+  margin: 30px 0; /* Adds space between Morning, Afternoon, and Evening sections */
 }
+
+.slot-header {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+  text-align: left;
+  color: #0000008F;
+}
+
+
 
 .slots-row {
   display: flex;

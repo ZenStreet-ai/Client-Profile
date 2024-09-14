@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import Calendar from 'react-calendar';
 import timingsData from './timings.json';
-import InPerson from '../assets/inPerson';
-import Call from '../assets/Call';
-import Video from '../assets/Video';
-import Location from '../assets/Location';
+import InPerson from '../assets/InPerson'; // In-Person icon
+import Video from '../assets/Video'; // Video icon
+import Call from '../assets/Call'; // Call icon
+import Location from '../assets/Location'; // Location icon component
 import ConfirmBookingComponent from './bookingConfirmation';
 import 'react-calendar/dist/Calendar.css';
 import './ButtonGroupComponent.css';
@@ -19,30 +19,97 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const router = useRouter();
+
   const handleClick = (buttonId: number) => {
     setSelectedButton(buttonId);
   };
 
-  const { morning, afternoon, evening } = timingsData.timings;
+  // SlotTimeDateComponent defined within ButtonGroupComponent
+  const SlotTimeDateComponent = ({ selectedSlot, setSlot }: { selectedSlot: string | undefined, setSlot: (slot: string) => void }) => {
+    const { morning, afternoon, evening } = timingsData.timings;
+
+    const renderSlotButtons = (timingArray: string[], label: string) => (
+      <div className='slot-grid'>
+        <h2 className='slot-header'>{label}</h2>
+        <div className='slot-grid-section'>
+          {timingArray.map((timing, index) => (
+            <Button
+              key={index}
+              style={{
+                width: '153px',
+                height: '46px',
+                padding: '12px 20px',
+                borderRadius: '112px',
+                border: '2px solid #000000',
+                backgroundColor: selectedSlot === timing ? 'black' : 'transparent',
+                color: selectedSlot === timing ? 'white' : 'black',
+                opacity: '1',
+              }}
+              onClick={() => setSlot(timing)}
+            >
+              {timing}
+            </Button>
+          ))}
+        </div>
+      </div>
+    );
+
+    return (
+      <div className='select-time-date'>
+        <h1 className="ther-bold">Select a slot</h1>
+        <div className='slots-row'>
+          {renderSlotButtons(morning, 'Morning')}
+          {renderSlotButtons(afternoon, 'Afternoon')}
+          {renderSlotButtons(evening, 'Evening')}
+        </div>
+      </div>
+    );
+};
+
+  // CalendarComponent defined within ButtonGroupComponent
+  const CalendarComponent = ({ date, setDate }: { date: Date | undefined, setDate: (date: Date) => void }) => {
+    return (
+      <div className="calendar-container">
+        <h2 style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+          <b>Available Dates</b>
+          <span style={{ display: "inline-block", marginLeft: "10px", width: "10px", height: "10px", backgroundColor: "blue" }}></span>
+        </h2>
+
+        <Calendar
+          onChange={setDate}
+          value={date}
+          minDate={new Date()}
+          className="custom-calendar"
+          tileClassName={({ date, view }) => {
+            if (view === 'month') {
+              const day = date.getDay();
+              if (day === 0 || day === 6) {
+                return 'unavailable-date'; // Style weekends as unavailable
+              }
+              return 'available-date'; // Style weekdays as available
+            }
+            return null;
+          }}
+        />
+      </div>
+    );
+  };
 
   return (
     <div className='therapy-opt'>
-      {/* Only show progress bar on mobile using a media query */}
       <div className="mobile-progress-bar">
         <Progress value={33} className="progress-bar" />
       </div>
 
       <h1 className="ther-bold" style={{fontSize:"20px"}}>Please select therapy mode</h1>
       <div className='therapy-center'>
+        {/* Therapy Buttons */}
         <div className='button-container'>
           <Button
             onClick={() => handleClick(1)}
             className={`therapy-button ${selectedButton === 1 ? 'selected' : ''}`}
           >
-            <InPerson 
-              className='therapy-icon' 
-              btn={selectedButton}
-            />
+            <InPerson className='therapy-icon' btn={selectedButton} />
           </Button>
           <span className='therapy-mode'>In-Person</span>
         </div>
@@ -52,10 +119,7 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
             onClick={() => handleClick(2)}
             className={`therapy-button ${selectedButton === 2 ? 'selected' : ''}`}
           >
-            <Video 
-              className='therapy-icon' 
-              btn={selectedButton}
-            />
+            <Video className='therapy-icon' btn={selectedButton} />
           </Button>
           <span className='therapy-mode'>Video</span>
         </div>
@@ -65,404 +129,67 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
             onClick={() => handleClick(3)}
             className={`therapy-button ${selectedButton === 3 ? 'selected' : ''}`}
           >
-            <Call 
-              className='therapy-icon' 
-              btn={selectedButton}
-            />
+            <Call className='therapy-icon' btn={selectedButton} />
           </Button>
           <span className='therapy-mode'>Call</span>
         </div>
       </div>
 
+      {/* Location Section with center alignment */}
       <div className="loc-left">
-        <Location />
-        <span className='span-t'>3rd Floor, A2, 35, Block A2, Delhi</span>
+        <Location className='location-icon' />
+        <span className='location-text'>3rd Floor, A2, 35, Block A2, Delhi</span>
       </div>
-      
+
       <div className='filter-options'>
         <h1 className="ther-bold">Filter by</h1>
         {isMobile ? (
-        // Render radio buttons for mobile view
-        <div className="therapy-center">
-          <label>
-            <input
-              type="radio"
-              value="slot"
-              checked={filterOption === 'slot'}
-              onChange={() => setFilterOption('slot')}
-            />
-            Slot
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="date"
-              checked={filterOption === 'date'}
-              onChange={() => setFilterOption('date')}
-            />
-            Date
-          </label>
-        </div>
-      ) : (
-        // Render regular buttons for non-mobile view
-        <div className='therapy-center'>
-          <Button
-            onClick={() => setFilterOption('slot')}
-            className={filterOption === 'slot' ? 'selected-filter' : ''}
-          >
-            Slot
-          </Button>
-          <Button
-            onClick={() => setFilterOption('date')}
-            className={filterOption === 'date' ? 'selected-filter' : ''}
-          >
-            Date
-          </Button>
-        </div>
-      )}
+          <div className="therapy-center">
+            {/* Mobile filter options */}
+          </div>
+        ) : (
+          <div className='therapy-center'>
+            <Button
+              onClick={() => setFilterOption('slot')}
+              className={filterOption === 'slot' ? 'selected-filter' : ''}
+            >
+              Slot
+            </Button>
+            <Button
+              onClick={() => setFilterOption('date')}
+              className={filterOption === 'date' ? 'selected-filter' : ''}
+            >
+              Date
+            </Button>
+          </div>
+        )}
       </div>
 
+      {/* Slot and Calendar Display based on filterOption */}
       {filterOption === 'slot' && (
-        <div className='select-time-date'>
-          <h1 className="ther-bold">Select a slot</h1>
-          <div className='slots-row'>
-            <div className='slot-grid'>
-              <h2 className='slot-header'>Morning</h2>
-              <div className='slot-grid-section'>
-                {morning.slice(0, 2).map((timing, index) => (
-                  <Button
-                    key={index}
-                    style={{
-                      width: '153.72px',
-                      height: '45.93px',
-                      padding: '12.41px 19.86px',
-                      borderRadius: '111.72px',
-                      border: '2px solid #000000',
-                      backgroundColor: slot === timing ? 'black' : 'transparent',
-                      color: slot === timing ? 'white' : 'black',
-                      opacity: '1',
-                    }}
-                    onClick={() => setSlot(timing)}
-                  >
-                    {timing}
-                  </Button>
-                ))}
-              </div>
-              <div className='slot-grid-section'>
-                {morning.slice(2).map((timing, index) => (
-                  <Button
-                    key={index}
-                    style={{
-                      width: '153.72px',
-                      height: '45.93px',
-                      padding: '12.41px 19.86px',
-                      borderRadius: '111.72px',
-                      border: '2px solid #000000',
-                      backgroundColor: slot === timing ? 'black' : 'transparent',
-                      color: slot === timing ? 'white' : 'black',
-                      opacity: '1',
-                    }}
-                    onClick={() => setSlot(timing)}
-                  >
-                    {timing}
-                  </Button>
-                ))}
-              </div>
-            </div>
-            <div className='slot-grid'>
-              <h2 className='slot-header'>Afternoon</h2>
-              <div className='slot-grid-section'>
-                {afternoon.slice(0, 2).map((timing, index) => (
-                  <Button
-                    key={index}
-                    style={{
-                      width: '153.72px',
-                      height: '45.93px',
-                      padding: '12.41px 19.86px',
-                      borderRadius: '111.72px',
-                      border: '2px solid #000000',
-                      backgroundColor: slot === timing ? 'black' : 'transparent',
-                      color: slot === timing ? 'white' : 'black',
-                      opacity: '1',
-                    }}
-                    onClick={() => setSlot(timing)}
-                  >
-                    {timing}
-                  </Button>
-                ))}
-              </div>
-              <div className='slot-grid-section'>
-                {afternoon.slice(2).map((timing, index) => (
-                  <Button
-                    key={index}
-                    style={{
-                      width: '153.72px',
-                      height: '45.93px',
-                      padding: '12.41px 19.86px',
-                      borderRadius: '111.72px',
-                      border: '2px solid #000000',
-                      backgroundColor: slot === timing ? 'black' : 'transparent',
-                      color: slot === timing ? 'white' : 'black',
-                      opacity: '1',
-                    }}
-                    onClick={() => setSlot(timing)}
-                  >
-                    {timing}
-                  </Button>
-                ))}
-              </div>
-            </div>
-            <div className='slot-grid'>
-              <h2 className='slot-header'>Evening</h2>
-              <div className='slot-grid-section'>
-                {evening.slice(0, 2).map((timing, index) => (
-                  <Button
-                    key={index}
-                    style={{
-                      width: '153.72px',
-                      height: '45.93px',
-                      padding: '12.41px 19.86px',
-                      borderRadius: '111.72px',
-                      border: '2px solid #000000',
-                      backgroundColor: slot === timing ? 'black' : 'transparent',
-                      color: slot === timing ? 'white' : 'black',
-                      opacity: '1',
-                    }}
-                    onClick={() => setSlot(timing)}
-                  >
-                    {timing}
-                  </Button>
-                ))}
-              </div>
-              <div className='slot-grid-section'>
-                {evening.slice(2).map((timing, index) => (
-                  <Button
-                    key={index}
-                    style={{
-                      width: '153.72px',
-                      height: '45.93px',
-                      padding: '12.41px 19.86px',
-                      borderRadius: '111.72px',
-                      border: '2px solid #000000',
-                      backgroundColor: slot === timing ? 'black' : 'transparent',
-                      color: slot === timing ? 'white' : 'black',
-                      opacity: '1',
-                    }}
-                    onClick={() => setSlot(timing)}
-                  >
-                    {timing}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="calendar-container">
-            <h2 style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-              <b>Available Dates</b>
-              <span style={{ display: "inline-block", marginLeft: "10px", width: "10px", height: "10px", backgroundColor: "blue" }}></span>
-            </h2>
-
-            <Calendar
-              onChange={setDate}
-              value={date}
-              minDate={new Date()}
-              className="custom-calendar"
-              tileClassName={({ date, view }) => {
-                // Example of marking available dates
-                if (view === 'month') {
-                  const day = date.getDay();
-                  if (day === 0 || day === 6) {
-                    return 'unavailable-date'; // Style weekends as unavailable
-                  }
-                  return 'available-date'; // Style weekdays as available
-                }
-                return null;
-              }}
-            />
-          </div>
-
-        </div>
+        <>
+          <SlotTimeDateComponent selectedSlot={slot} setSlot={setSlot} />
+          {<CalendarComponent date={date} setDate={setDate} />}
+        </>
       )}
-      
+
       {filterOption === 'date' && (
-        <div className="box-container">
-          <h1 className="ther-bold">Select a date</h1>
-          <div className="calendar-container">
-            <h2 style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-              <b>Available Dates</b>
-              <span style={{ display: "inline-block", marginLeft: "10px", width: "10px", height: "10px", backgroundColor: "blue" }}></span>
-            </h2>
-
-            <Calendar
-              onChange={setDate}
-              value={date}
-              minDate={new Date()}
-              className="custom-calendar"
-              tileClassName={({ date, view }) => {
-                // Example of marking available dates
-                if (view === 'month') {
-                  const day = date.getDay();
-                  if (day === 0 || day === 6) {
-                    return 'unavailable-date'; // Style weekends as unavailable
-                  }
-                  return 'available-date'; // Style weekdays as available
-                }
-                return null;
-              }}
-            />
-          </div>
-
-          <div className="select-time-date">
-            <h1 className="ther-bold">Select a slot</h1>
-            <div className="slots-row">
-              <div className="slot-grid">
-                <h2 className="slot-header">Morning</h2>
-                <div className="slot-grid-section">
-                  {morning.slice(0, 2).map((timing, index) => (
-                    <Button
-                      key={index}
-                      style={{
-                        width: '153.72px',
-                        height: '45.93px',
-                        padding: '12.41px 19.86px',
-                        borderRadius: '111.72px',
-                        border: '2px solid #000000',
-                        backgroundColor: slot === timing ? 'black' : 'transparent',
-                        color: slot === timing ? 'white' : 'black',
-                        opacity: '1',
-                      }}
-                      onClick={() => setSlot(timing)}
-                    >
-                      {timing}
-                    </Button>
-                  ))}
-                </div>
-                <div className="slot-grid-section">
-                  {morning.slice(2).map((timing, index) => (
-                    <Button
-                      key={index}
-                      style={{
-                        width: '153.72px',
-                        height: '45.93px',
-                        padding: '12.41px 19.86px',
-                        borderRadius: '111.72px',
-                        border: '2px solid #000000',
-                        backgroundColor: slot === timing ? 'black' : 'transparent',
-                        color: slot === timing ? 'white' : 'black',
-                        opacity: '1',
-                      }}
-                      onClick={() => setSlot(timing)}
-                    >
-                      {timing}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-              <div className="slot-grid">
-                <h2 className="slot-header">Afternoon</h2>
-                <div className="slot-grid-section">
-                  {afternoon.slice(0, 2).map((timing, index) => (
-                    <Button
-                      key={index}
-                      style={{
-                        width: '153.72px',
-                        height: '45.93px',
-                        padding: '12.41px 19.86px',
-                        borderRadius: '111.72px',
-                        border: '2px solid #000000',
-                        backgroundColor: slot === timing ? 'black' : 'transparent',
-                        color: slot === timing ? 'white' : 'black',
-                        opacity: '1',
-                      }}
-                      onClick={() => setSlot(timing)}
-                    >
-                      {timing}
-                    </Button>
-                  ))}
-                </div>
-                <div className="slot-grid-section">
-                  {afternoon.slice(2).map((timing, index) => (
-                    <Button
-                      key={index}
-                      style={{
-                        width: '153.72px',
-                        height: '45.93px',
-                        padding: '12.41px 19.86px',
-                        borderRadius: '111.72px',
-                        border: '2px solid #000000',
-                        backgroundColor: slot === timing ? 'black' : 'transparent',
-                        color: slot === timing ? 'white' : 'black',
-                        opacity: '1',
-                      }}
-                      onClick={() => setSlot(timing)}
-                    >
-                      {timing}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-              <div className="slot-grid">
-                <h2 className="slot-header">Evening</h2>
-                <div className="slot-grid-section">
-                  {evening.slice(0, 2).map((timing, index) => (
-                    <Button
-                      key={index}
-                      style={{
-                        width: '153.72px',
-                        height: '45.93px',
-                        padding: '12.41px 19.86px',
-                        borderRadius: '111.72px',
-                        border: '2px solid #000000',
-                        backgroundColor: slot === timing ? 'black' : 'transparent',
-                        color: slot === timing ? 'white' : 'black',
-                        opacity: '1',
-                      }}
-                      onClick={() => setSlot(timing)}
-                    >
-                      {timing}
-                    </Button>
-                  ))}
-                </div>
-                <div className="slot-grid-section">
-                  {evening.slice(2).map((timing, index) => (
-                    <Button
-                      key={index}
-                      style={{
-                        width: '153.72px',
-                        height: '45.93px',
-                        padding: '12.41px 19.86px',
-                        borderRadius: '111.72px',
-                        border: '2px solid #000000',
-                        backgroundColor: slot === timing ? 'black' : 'transparent',
-                        color: slot === timing ? 'white' : 'black',
-                        opacity: '1',
-                      }}
-                      onClick={() => setSlot(timing)} 
-                    >
-                      {timing}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <>
+          <CalendarComponent date={date} setDate={setDate} />
+          <SlotTimeDateComponent selectedSlot={slot} setSlot={setSlot} />
+        </>
       )}
-      
+
       {!isMobile ? (
         <ConfirmBookingComponent selectedSlot={slot} selectedDate={date} />
       ) : (
-        <>
-          <button
-            onClick={()=>{
-              router.push('/booking/bookingConfirmation');
-            }}
-            className={`buttonProceed ${!(slot && date) ? 'buttonDisabled' : ''}`} // Disable if either slot or date is not selected
-            disabled={!(slot && date)} // Disable button if both slot and date are not selected
-          >
-            Proceed
-          </button>
-        </>
+        <button
+          onClick={() => router.push('/booking/bookingConfirmation')}
+          className={`buttonProceed ${!(slot && date) ? 'buttonDisabled' : ''}`}
+          disabled={!(slot && date)}
+        >
+          Proceed
+        </button>
       )}
     </div>
   );
