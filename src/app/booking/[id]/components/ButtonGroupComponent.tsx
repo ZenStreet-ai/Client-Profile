@@ -257,14 +257,30 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
             </div>
           </div>
           <div className="calendar-container">
+            <h2 style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+              <b>Available Dates</b>
+              <span style={{ display: "inline-block", marginLeft: "10px", width: "10px", height: "10px", backgroundColor: "blue" }}></span>
+            </h2>
+
             <Calendar
               onChange={setDate}
               value={date}
               minDate={new Date()}
               className="custom-calendar"
-              tileClassName={({ date, view }) => view === 'month' && (date.getDay() === 0 || date.getDay() === 6) ? 'weekend' : null}
+              tileClassName={({ date, view }) => {
+                // Example of marking available dates
+                if (view === 'month') {
+                  const day = date.getDay();
+                  if (day === 0 || day === 6) {
+                    return 'unavailable-date'; // Style weekends as unavailable
+                  }
+                  return 'available-date'; // Style weekdays as available
+                }
+                return null;
+              }}
             />
           </div>
+
         </div>
       )}
       
@@ -272,11 +288,27 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
         <div className="box-container">
           <h1 className="ther-bold">Select a date</h1>
           <div className="calendar-container">
+            <h2 style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+              <b>Available Dates</b>
+              <span style={{ display: "inline-block", marginLeft: "10px", width: "10px", height: "10px", backgroundColor: "blue" }}></span>
+            </h2>
+
             <Calendar
               onChange={setDate}
               value={date}
               minDate={new Date()}
               className="custom-calendar"
+              tileClassName={({ date, view }) => {
+                // Example of marking available dates
+                if (view === 'month') {
+                  const day = date.getDay();
+                  if (day === 0 || day === 6) {
+                    return 'unavailable-date'; // Style weekends as unavailable
+                  }
+                  return 'available-date'; // Style weekdays as available
+                }
+                return null;
+              }}
             />
           </div>
 

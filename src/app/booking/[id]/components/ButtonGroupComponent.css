@@ -164,26 +164,94 @@
   margin: 40px auto;
 }
 
-.color-box {
+.calendar-container h2 {
   display: flex;
   align-items: center;
-  background-color: var(--color-box-bg);
-  color: var(--text-color);
-  padding: 10px 15px;
-  border-radius: 5.13px 0 0 0;
-  width: fit-content;
-  height: 20.52px;
-  margin-bottom: 20px;
-  font-family: var(--default-font-family);
-  font-size: 14px;
-  font-weight: 600;
+  justify-content: flex-start; /* Aligns contents of h2 to the left */
+  width: 100%; /* Ensures the h2 takes full width of the container */
+  margin-bottom: 20px; /* Adds space between the h2 and calendar */
+  font-size: 18px;
 }
 
-.color-box span {
-  display: inline-block;
-  font-size: 14px;
-  margin-left: 5px;
+.custom-calendar {
+  border: none; /* Removes default border */
+  font-family: 'Roboto', sans-serif;
 }
+
+.react-calendar {
+  width: 100%; /* Makes it responsive */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.react-calendar__navigation button {
+  color: #007bff; /* Blue for navigation buttons */
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: bold;
+  text-align: center;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #000; /* Black color for weekday names */
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr); /* Always 7 columns */
+  grid-template-rows: repeat(6, 1fr); /* Always 6 rows */
+  height: 300px; /* Fix the height so it remains constant */
+}
+
+.react-calendar__tile {
+  text-align: center;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: #aaa; /* Default gray color */
+}
+
+.react-calendar__tile--active {
+  background-color: #007bff !important; /* Blue background for selected date */
+  color: white !important; /* White text for better visibility */
+  border-radius: 50%; /* Circular shape for the selected date */
+}
+
+.react-calendar__tile:enabled:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Light blue hover effect */
+  border-radius: 50%; /* Hover effect also circular */
+}
+
+.react-calendar__tile--now {
+  background-color: transparent;
+  border: 2px solid #007bff;
+  color: #007bff; /* Blue for today’s date */
+}
+
+.available-date {
+  color: #007bff !important; /* Blue for available dates */
+}
+
+.unavailable-date {
+  color: #ccc !important; /* Gray for unavailable dates */
+}
+
 
 .left-aligned-heading {
   text-align: left;
@@ -295,6 +363,7 @@
   background-color: var(--secondary-color);
   color: var(--text-color);
 }
+
 
 @media (max-width: 768px) {
   .therapy-center {
