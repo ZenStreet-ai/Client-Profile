@@ -417,13 +417,15 @@
     margin: 0 auto;
   }
 
+  /* Adjust the calendar container for mobile */
   .calendar-container {
-    width: 319.24px;
-    height: 331.32px;
+    width: 100%; /* Set to full width */
+    max-width: 320px; /* Set a max width for mobile */
+    height: auto;
     gap: 0px;
     border-radius: 14px;
     padding: 20px;
-    margin: 0 auto;
+    margin: 0 auto 20px; /* Add margin at the bottom to separate components */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -433,6 +435,24 @@
     box-sizing: border-box;
   }
 
+  /* Constrain the calendar inside */
+  .react-calendar {
+    width: 100%;
+    max-width: 100%; /* Ensure the calendar doesn't overflow */
+    height: auto;
+    padding: 10px; /* Add some padding inside the calendar */
+    box-sizing: border-box;
+  }
+
+  /* Calendar navigation on mobile */
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust the grid layout of slots */
   .select-time-date {
     display: flex;
     flex-direction: column;
@@ -440,7 +460,6 @@
 
   .slot-grid {
     width: 290px;
-    height: 354px;
     gap: 24px;
     margin: 0 auto;
     display: flex;
@@ -463,7 +482,7 @@
     height: 37px;
     padding: 10px 16px;
     gap: 10px;
-    border-radius: 90px 0px 0px 0px;
+    border-radius: 90px;
     border: 1px solid #ccc;
     background-color: white;
     color: black;
@@ -497,89 +516,89 @@
   }
 
   /* Style settings for the Proceed button */
-.buttonProceed {
-  background-color: #0085D0;
-  color: white;
-  width: 100%; /* Make button width 100% in mobile mode */
-  max-width: 881px; /* Keep the max width */
-  height: 64px;
-  padding: 14px 0;
-  gap: 10px;
-  border-radius: 12px;
-  opacity: 1;
-  font-family: Poppins, sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+  .buttonProceed {
+    background-color: #0085D0;
+    color: white;
+    width: 100%; /* Make button width 100% in mobile mode */
+    max-width: 881px; /* Keep the max width */
+    height: 64px;
+    padding: 14px 0;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 1;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-/* Style for the button when disabled */
-.buttonDisabled {
-  background-color: #B7B7B7;
-  color: white;
-  width: 100%;
-  max-width: 881px;
-  height: 64px;
-  padding: 14px 0;
-  gap: 10px;
-  border-radius: 12px;
-  opacity: 0.5;
-  font-family: Poppins, sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.mobile-filter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  padding: 10px 0;
-}
+  /* Style for the button when disabled */
+  .buttonDisabled {
+    background-color: #B7B7B7;
+    color: white;
+    width: 100%;
+    max-width: 881px;
+    height: 64px;
+    padding: 14px 0;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 0.5;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-.mobile-filter label {
-  font-family: var(--default-font-family);
-  font-size: 16px;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: normal; /* Default weight */
-}
+  /* Mobile filter options with radio buttons */
+  .mobile-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px 0;
+  }
 
-.mobile-filter input[type="radio"] {
-  margin-right: 5px;
-  appearance: none; /* Remove default styling */
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid #333;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-}
+  .mobile-filter label {
+    font-family: var(--default-font-family);
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal; /* Default weight */
+  }
 
-.mobile-filter input[type="radio"]:checked {
-  background-color: black; /* Black fill when checked */
-}
+  .mobile-filter input[type="radio"] {
+    margin-right: 5px;
+    appearance: none; /* Remove default styling */
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+  }
 
-.mobile-filter input[type="radio"]:checked + label {
-  font-weight: bold; /* Bold text when selected */
-  color: black; /* Change text color to black when selected */
-}
+  .mobile-filter input[type="radio"]:checked {
+    background-color: black; /* Black fill when checked */
+  }
 
-.selected-option {
-  font-weight: bold;
-  color: black; /* Apply bold and black color when selected */
-}
+  .mobile-filter input[type="radio"]:checked + label {
+    font-weight: bold; /* Bold text when selected */
+    color: black; /* Change text color to black when selected */
+  }
 
-
+  .selected-option {
+    font-weight: bold;
+    color: black; /* Apply bold and black color when selected */
+  }
 }
