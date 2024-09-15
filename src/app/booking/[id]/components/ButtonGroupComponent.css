@@ -339,7 +339,7 @@
 }
 
 .slot-grid {
-  margin: 30px 0; /* Adds space between Morning, Afternoon, and Evening sections */
+  margin: 30px 10px; /* Adds space between Morning, Afternoon, and Evening sections */
 }
 
 .slot-header {
@@ -537,5 +537,49 @@
   justify-content: center;
   text-align: center;
 }
+.mobile-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.mobile-filter label {
+  font-family: var(--default-font-family);
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: normal; /* Default weight */
+}
+
+.mobile-filter input[type="radio"] {
+  margin-right: 5px;
+  appearance: none; /* Remove default styling */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.mobile-filter input[type="radio"]:checked {
+  background-color: black; /* Black fill when checked */
+}
+
+.mobile-filter input[type="radio"]:checked + label {
+  font-weight: bold; /* Bold text when selected */
+  color: black; /* Change text color to black when selected */
+}
+
+.selected-option {
+  font-weight: bold;
+  color: black; /* Apply bold and black color when selected */
+}
+
 
 }

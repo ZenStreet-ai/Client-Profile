@@ -144,8 +144,27 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
       <div className='filter-options'>
         <h1 className="ther-bold">Filter by</h1>
         {isMobile ? (
-          <div className="therapy-center">
-            {/* Mobile filter options */}
+          <div className="therapy-center mobile-filter">
+            <label className={filterOption === 'slot' ? 'selected-option' : ''}>
+              <input
+                type="radio"
+                name="filterOption"
+                value="slot"
+                checked={filterOption === 'slot'}
+                onChange={() => setFilterOption('slot')}
+              />
+              Slot
+            </label>
+            <label className={filterOption === 'date' ? 'selected-option' : ''}>
+              <input
+                type="radio"
+                name="filterOption"
+                value="date"
+                checked={filterOption === 'date'}
+                onChange={() => setFilterOption('date')}
+              />
+              Date
+            </label>
           </div>
         ) : (
           <div className='therapy-center'>
