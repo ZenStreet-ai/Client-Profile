@@ -2,6 +2,7 @@ import { InPerson, Phone } from "@/assets/icons";
 import Available from "@/components/Available";
 import Credentials from "@/components/Credentials";
 import CustomWrapper from "@/components/CustomSectionComponent";
+import Description from "@/components/Description";
 import Offers from "@/components/Offers";
 import ProfileCard from '@/components/ProfileCardComponent';
 import TestimonialWrapper, { TestimonialProps } from "@/components/TestimonialSection";
@@ -42,15 +43,11 @@ const testimonials: TestimonialProps[] = [
 ];
 
 const Profile = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const aboutMeText = `Hello, I'm Swetha, a licensed therapist dedicated to guiding individuals through life's
     challenges with empathy and expertise. With over 10 years of experience, I specialize in helping
     clients manage anxiety, depression, and relationship issues through personalized, evidence-based
     practices.`;
-
-  const truncatedText = aboutMeText.length > 350 ? aboutMeText.substring(0, 350) + '...' : aboutMeText;
-  const shouldShowReadLess = aboutMeText.length > 350;
 
   return (
     <div className="flex">
@@ -67,17 +64,7 @@ const Profile = () => {
       </div>
       <div className="ml-8 flex-1 mt-[100px] space-y-[96px]">
         <CustomWrapper title="About me">
-          <p className="text-[#4C5863]">
-            {isExpanded ? aboutMeText : truncatedText}
-            {shouldShowReadLess && (
-              <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="text-blue-500 ml-2"
-              >
-                {isExpanded ? 'Read Less' : 'Read More'}
-              </button>
-            )}
-          </p>
+          <Description aboutMeText={aboutMeText}/>
         </CustomWrapper>
         <Credentials />
         <div className="w-[325px] h-[187px] text-[24px] space-y-[24px]">
