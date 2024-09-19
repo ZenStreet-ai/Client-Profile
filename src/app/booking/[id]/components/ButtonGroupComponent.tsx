@@ -12,6 +12,10 @@ import 'react-calendar/dist/Calendar.css';
 import './ButtonGroupComponent.css';
 import { useRouter } from 'next/navigation';
 
+export type Range<T> = [T, T];
+type ValuePiece = Date | null;
+export type Value = ValuePiece | Range<ValuePiece>;
+
 const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
   const [selectedButton, setSelectedButton] = useState<number>(1);
   const [filterOption, setFilterOption] = useState<'slot' | 'date'>('slot');
@@ -67,7 +71,7 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
 };
 
   // CalendarComponent defined within ButtonGroupComponent
-  const CalendarComponent = ({ date, setDate }: { date: Date | undefined, setDate: (date: Date) => void }) => {
+  const CalendarComponent = ({ date, setDate }: { date: Date | undefined, setDate: (value:Value) => void }) => {
     return (
       <div className="calendar-container">
         <h2 style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
@@ -94,6 +98,13 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
       </div>
     );
   };
+
+  const changeDate = (value:Value) =>{
+    if(value instanceof Date)
+    {
+    setDate(value??undefined)
+    }
+  }
 
   return (
     <div className='therapy-opt'>
@@ -188,13 +199,13 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
       {filterOption === 'slot' && (
         <>
           <SlotTimeDateComponent selectedSlot={slot} setSlot={setSlot} />
-          {<CalendarComponent date={date} setDate={setDate} />}
+          {<CalendarComponent date={date} setDate={changeDate} />}
         </>
       )}
 
       {filterOption === 'date' && (
         <>
-          <CalendarComponent date={date} setDate={setDate} />
+          <CalendarComponent date={date} setDate={changeDate} />
           <SlotTimeDateComponent selectedSlot={slot} setSlot={setSlot} />
         </>
       )}

@@ -19,7 +19,7 @@ const ConfirmationPage: React.FC = () => {
       {/* Congratulations message */}
       <p className={styles.congratulationsMessage}>
         Congratulations! Your therapy session has been successfully scheduled.
-        We're looking forward to helping you on your journey to better mental health.
+        We&apos;re looking forward to helping you on your journey to better mental health.
       </p>
 
       {/* Instructions section */}
