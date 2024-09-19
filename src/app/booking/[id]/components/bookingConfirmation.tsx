@@ -3,8 +3,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"; // 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import styles from './bookingConfirmation.module.css';
-import { useSearchParams } from "next/navigation";
+import styles from "./bookingConfirmation.module.css";
 
 const ConfirmBookingComponent = ({
   selectedSlot,
