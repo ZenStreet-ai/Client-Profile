@@ -1,4 +1,12 @@
-import { Calendar, Certificate, Document, GraduateCap, InPerson, People, Phone } from "@/assets/icons";
+import {
+  Calendar,
+  Certificate,
+  Document,
+  GraduateCap,
+  InPerson,
+  People,
+  Phone,
+} from "@/assets/icons";
 import Image from "next/image";
 import { useState } from "react";
 import Available from "./Available";
@@ -43,33 +51,39 @@ const credentials = [
 const testimonials: TestimonialProps[] = [
   {
     id: 1,
-    quote: "Therapy helped me build self-esteem and confidence that I never thought possible.",
-    author: "Anonymous"
+    quote:
+      "Therapy helped me build self-esteem and confidence that I never thought possible.",
+    author: "Anonymous",
   },
   {
     id: 2,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
   {
     id: 3,
-    quote: "The support I've received has been transformative. I feel like a new person.",
-    author: "Sarah K."
+    quote:
+      "The support I've received has been transformative. I feel like a new person.",
+    author: "Sarah K.",
   },
   {
     id: 4,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
   {
     id: 5,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
   {
     id: 6,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
 ];
 
@@ -81,7 +95,10 @@ const ProfileComponentMobile = () => {
     clients manage anxiety, depression, and relationship issues through personalized, evidence-based
     practices.`;
 
-  const truncatedText = aboutMeText.length > 350 ? aboutMeText.substring(0, 350) + '...' : aboutMeText;
+  const truncatedText =
+    aboutMeText.length > 350
+      ? aboutMeText.substring(0, 350) + "..."
+      : aboutMeText;
   const shouldShowReadLess = aboutMeText.length > 350;
   return (
     <div className="w-full h-screen">
@@ -96,7 +113,9 @@ const ProfileComponentMobile = () => {
             className="rounded-full mx-auto mb-4"
           />
           <h2 className="text-xl text-white">Swetha Varma</h2>
-          <p className="text-white text-[10px]">Consultant Clinical Psychologist</p>
+          <p className="text-white text-[10px]">
+            Consultant Clinical Psychologist
+          </p>
           <p className="mt-2 text-[16px] text-white">4+ Years of experience</p>
           <p className="text-white text-[14px] mt-2">₹1,200 / session</p>
           <p className="text-[12px] text-white">Block A2, Delhi</p>
@@ -111,7 +130,7 @@ const ProfileComponentMobile = () => {
                   onClick={() => setIsExpanded(!isExpanded)}
                   className="text-blue-500 ml-2"
                 >
-                  {isExpanded ? 'Read Less' : 'Read More'}
+                  {isExpanded ? "Read Less" : "Read More"}
                 </button>
               )}
             </p>
@@ -120,15 +139,24 @@ const ProfileComponentMobile = () => {
             <h2 className="leading-5 text-[16x]">Credentials</h2>
             <ul className="space-y-4 pt-4">
               {credentials.map((credential) => (
-                <li key={credential.id} className="flex items-start space-x-[14px]">
-                  <span className="text-[#516E8A] text-[12px] leading-5">{credential.icon}</span>
-                  <p className="text-[#516E8A] text-[12px]">{credential.title}</p>
+                <li
+                  key={credential.id}
+                  className="flex items-start space-x-[14px]"
+                >
+                  <span className="text-[#516E8A] text-[12px] leading-5">
+                    {credential.icon}
+                  </span>
+                  <p className="text-[#516E8A] text-[12px]">
+                    {credential.title}
+                  </p>
                 </li>
               ))}
             </ul>
           </div>
           <div className="w-[325px] h-[157px] text-[24px] py-3">
-            <h2 className="leading-5 h-[26px] w-[325px] text-[14px]">Available on</h2>
+            <h2 className="leading-5 h-[26px] w-[325px] text-[14px]">
+              Available on
+            </h2>
             <div className="flex w-[290px] space-x-[64px]">
               <Available label="In-person" icon={<InPerson />} />
               <Available label="Video/Voice Call" icon={<Phone />} />
@@ -145,6 +173,5 @@ const ProfileComponentMobile = () => {
     </div>
   );
 };
-
 
 export default ProfileComponentMobile;

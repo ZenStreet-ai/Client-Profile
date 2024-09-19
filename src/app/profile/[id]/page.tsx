@@ -4,46 +4,53 @@ import Credentials from "@/components/Credentials";
 import CustomWrapper from "@/components/CustomSectionComponent";
 import Description from "@/components/Description";
 import Offers from "@/components/Offers";
-import ProfileCard from '@/components/ProfileCardComponent';
-import TestimonialWrapper, { TestimonialProps } from "@/components/TestimonialSection";
+import ProfileCard from "@/components/ProfileCardComponent";
+import TestimonialWrapper, {
+  TestimonialProps,
+} from "@/components/TestimonialSection";
 import { useState } from "react";
 // import { ScrollArea } from "@/components/ui/scroll-area";
 
 const testimonials: TestimonialProps[] = [
   {
     id: 1,
-    quote: "Therapy helped me build self-esteem and confidence that I never thought possible.",
-    author: "Anonymous"
+    quote:
+      "Therapy helped me build self-esteem and confidence that I never thought possible.",
+    author: "Anonymous",
   },
   {
     id: 2,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
   {
     id: 3,
-    quote: "The support I've received has been transformative. I feel like a new person.",
-    author: "Sarah K."
+    quote:
+      "The support I've received has been transformative. I feel like a new person.",
+    author: "Sarah K.",
   },
   {
     id: 4,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
   {
     id: 5,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
   {
     id: 6,
-    quote: "I've learned valuable coping strategies that have significantly improved my daily life.",
-    author: "J.D."
+    quote:
+      "I've learned valuable coping strategies that have significantly improved my daily life.",
+    author: "J.D.",
   },
 ];
 
 const Profile = () => {
-
   const aboutMeText = `Hello, I'm Swetha, a licensed therapist dedicated to guiding individuals through life's
     challenges with empathy and expertise. With over 10 years of experience, I specialize in helping
     clients manage anxiety, depression, and relationship issues through personalized, evidence-based
@@ -64,7 +71,7 @@ const Profile = () => {
       </div>
       <div className="ml-8 flex-1 mt-[100px] space-y-[96px]">
         <CustomWrapper title="About me">
-          <Description aboutMeText={aboutMeText}/>
+          <Description aboutMeText={aboutMeText} />
         </CustomWrapper>
         <Credentials />
         <div className="w-[325px] h-[187px] text-[24px] space-y-[24px]">

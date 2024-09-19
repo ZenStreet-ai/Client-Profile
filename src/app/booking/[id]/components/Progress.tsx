@@ -1,5 +1,5 @@
-import React from 'react';
-import './Progress.css'; // Import the CSS file for styling
+import React from "react";
+import "./Progress.css"; // Import the CSS file for styling
 
 interface ProgressProps {
   value: number;

@@ -2,8 +2,7 @@
 
 import React, { Suspense, useState } from "react";
 import { Progress } from "@/components/ui/progress";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SelectedSlot = () => {
   const searchParams = useSearchParams();
@@ -13,22 +12,19 @@ const SelectedSlot = () => {
   );
 };
 
-const SelectedDate = ()=>{
+const SelectedDate = () => {
   const searchParams = useSearchParams();
   const selectedDate = new Date(searchParams.get("selectedDate") ?? new Date());
 
-
-  return(
+  return (
     <p className="font-bold">
-    Date:{" "}
-    {selectedDate ? selectedDate.toDateString() : "No date selected"}
-  </p>
-  )
-}
+      Date: {selectedDate ? selectedDate.toDateString() : "No date selected"}
+    </p>
+  );
+};
 
 const MobileBookingConfirmation: React.FC = () => {
   const router = useRouter();
-
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -39,7 +35,7 @@ const MobileBookingConfirmation: React.FC = () => {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({
