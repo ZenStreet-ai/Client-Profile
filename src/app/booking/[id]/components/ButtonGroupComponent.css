@@ -1,0 +1,604 @@
+/* Define CSS Variables for consistency */
+:root {
+  --primary-color: #1F9FE6;
+  --secondary-color: black;
+  --text-color: white;
+  --default-font-family: 'Inter', sans-serif;
+  --heading-font-family: 'Poppins', sans-serif;
+  --button-size: 123px;
+  --small-button-size: 100px; /* Smaller button size for mobile */
+  --color-box-bg: #00A3FF;
+  --calendar-bg: white;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* General Styles */
+.therapy-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.therapy-center {
+  display: flex;
+  flex-direction: row; /* Default to row on desktop */
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.therapy-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+.location-container {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+  justify-content: center;
+}
+
+.loc-left {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 70%;
+  width: 90%;
+  gap: 6px;
+}
+
+.span-t {
+  font-family: var(--default-font-family);
+  margin-top: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #888888;
+}
+
+.therapy-center.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 10px;
+  margin-top: 0;
+}
+
+.ther-bold {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.55px;
+  text-align: left;
+}
+
+.therapy-mode {
+  font-family: var(--default-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.94px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #004E87;
+  margin-top: 8px;
+}
+
+.therapy-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  width: var(--button-size);
+  height: var(--button-size);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-align: center;
+  opacity: 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.therapy-button.selected {
+  background-color: var(--primary-color);
+}
+
+.therapy-icon {
+  color: #004E87;
+  margin-bottom: 8px;
+}
+
+.therapy-button.selected .therapy-icon {
+  color: var(--text-color);
+}
+
+.progress-bar {
+  display: none;
+  height: 4px;
+}
+
+.ther-btn-container {
+  display: flex;
+  gap: 10px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.selected-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.selected-filter {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.selected-slot {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px var(--shadow-color);
+  background-color: var(--calendar-bg);
+  width: 1024.38px;
+  height: 590px;
+  margin: 40px auto;
+}
+
+.calendar-container h2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns contents of h2 to the left */
+  width: 100%; /* Ensures the h2 takes full width of the container */
+  margin-bottom: 20px; /* Adds space between the h2 and calendar */
+  font-size: 18px;
+}
+
+.custom-calendar {
+  border: none; /* Removes default border */
+  font-family: 'Roboto', sans-serif;
+}
+
+.react-calendar {
+  width: 100%; /* Makes it responsive */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.react-calendar__navigation button {
+  color: #007bff; /* Blue for navigation buttons */
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: bold;
+  text-align: center;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #000; /* Black color for weekday names */
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr); /* Always 7 columns */
+  grid-template-rows: repeat(6, 1fr); /* Always 6 rows */
+  height: 300px; /* Fix the height so it remains constant */
+}
+
+.react-calendar__tile {
+  text-align: center;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: #aaa; /* Default gray color */
+}
+
+.react-calendar__tile--active {
+  background-color: #007bff !important; /* Blue background for selected date */
+  color: white !important; /* White text for better visibility */
+  border-radius: 50%; /* Circular shape for the selected date */
+}
+
+.react-calendar__tile:enabled:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Light blue hover effect */
+  border-radius: 50%; /* Hover effect also circular */
+}
+
+.react-calendar__tile--now {
+  background-color: transparent;
+  border: 2px solid #007bff;
+  color: #007bff; /* Blue for today’s date */
+}
+
+.available-date {
+  color: #007bff !important; /* Blue for available dates */
+}
+
+.unavailable-date {
+  color: #ccc !important; /* Gray for unavailable dates */
+}
+
+
+.left-aligned-heading {
+  text-align: left;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.filter-options .ther-bold {
+  text-align: left;
+}
+
+.filter-options .therapy-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.filter-options .therapy-center Button {
+  width: 220px;
+  height: 57px;
+  padding: 14px 20px;
+  gap: 10px;
+  border-radius: 50px;
+  background: white;
+  color: black;
+  opacity: 1;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-options .therapy-center Button.selected-filter {
+  background: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.select-time-date {
+  margin-bottom: 20px;
+}
+
+.select-time-date .ther-bold {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.select-time-date .therapy-center {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.select-time-date .therapy-center Button {
+  width: 220px;
+  height: 57px;
+  padding: 14px 20px;
+  gap: 10px;
+  border-radius: 50px;
+  background: white;
+  color: black;
+  opacity: 1;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.select-time-date .therapy-center Button.selected-filter {
+  background: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.slot-grid-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px;
+  width: 100%;
+  justify-items: center; /* Centers the buttons */
+}
+
+.slot-grid {
+  margin: 30px 10px; /* Adds space between Morning, Afternoon, and Evening sections */
+}
+
+.slot-header {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+  text-align: left;
+  color: #0000008F;
+}
+
+
+
+.slots-row {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.slot-header {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+  text-align: left;
+  color: #0000008F;
+}
+
+.slot-grid-section Button.selected {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+
+@media (max-width: 768px) {
+  .therapy-center {
+    width: 100%;
+    height: 94.32px;
+    gap: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .therapy-button {
+    width: 74.92px;
+    height: 74.92px;
+    padding: 24.62px;
+    gap: 0px;
+    border-radius: 8.56px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .loc-left {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 50%;
+    width: 90%;
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .ther-bold{
+    width: 100%;
+    height: 94.32px;
+    gap: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  /* Adjust the calendar container for mobile */
+  .calendar-container {
+    width: 100%; /* Set to full width */
+    max-width: 320px; /* Set a max width for mobile */
+    height: auto;
+    gap: 0px;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 0 auto 20px; /* Add margin at the bottom to separate components */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 12px var(--shadow-color);
+    background-color: var(--calendar-bg);
+    box-sizing: border-box;
+  }
+
+  /* Constrain the calendar inside */
+  .react-calendar {
+    width: 100%;
+    max-width: 100%; /* Ensure the calendar doesn't overflow */
+    height: auto;
+    padding: 10px; /* Add some padding inside the calendar */
+    box-sizing: border-box;
+  }
+
+  /* Calendar navigation on mobile */
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust the grid layout of slots */
+  .select-time-date {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slot-grid {
+    width: 290px;
+    gap: 24px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .slot-grid-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .slot-grid-section Button {
+    width: 118px;
+    height: 37px;
+    padding: 10px 16px;
+    gap: 10px;
+    border-radius: 90px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .slot-grid-section Button.selected {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+
+  .slots-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .filter-options .therapy-center Button,
+  .select-time-date .therapy-center Button {
+    width: auto;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Style settings for the Proceed button */
+  .buttonProceed {
+    background-color: #0085D0;
+    color: white;
+    width: 100%; /* Make button width 100% in mobile mode */
+    max-width: 881px; /* Keep the max width */
+    height: 64px;
+    padding: 14px 0;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 1;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Style for the button when disabled */
+  .buttonDisabled {
+    background-color: #B7B7B7;
+    color: white;
+    width: 100%;
+    max-width: 881px;
+    height: 64px;
+    padding: 14px 0;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 0.5;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Mobile filter options with radio buttons */
+  .mobile-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .mobile-filter label {
+    font-family: var(--default-font-family);
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal; /* Default weight */
+  }
+
+  .mobile-filter input[type="radio"] {
+    margin-right: 5px;
+    appearance: none; /* Remove default styling */
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .mobile-filter input[type="radio"]:checked {
+    background-color: black; /* Black fill when checked */
+  }
+
+  .mobile-filter input[type="radio"]:checked + label {
+    font-weight: bold; /* Bold text when selected */
+    color: black; /* Change text color to black when selected */
+  }
+
+  .selected-option {
+    font-weight: bold;
+    color: black; /* Apply bold and black color when selected */
+  }
+}
