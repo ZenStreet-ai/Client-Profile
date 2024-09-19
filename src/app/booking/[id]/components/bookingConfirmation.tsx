@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import styles from './BookingConfirmation.module.css';
+import { useSearchParams } from "next/navigation";
 
-const ConfirmBookingComponent = ({ selectedSlot, selectedDate }) => {
+const ConfirmBookingComponent = ({ selectedSlot, selectedDate }:{selectedSlot:string|undefined, selectedDate:Date|undefined}) => {
+
+
   const [showPopup, setShowPopup] = useState(false);
   const [slotSelected, setSlotSelected] = useState(false);
   const [isPartneringCompany, setIsPartneringCompany] = useState(false);
@@ -28,14 +31,14 @@ const ConfirmBookingComponent = ({ selectedSlot, selectedDate }) => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     // Add your form submission logic here, e.g., API call
     console.log('Form submitted:', formData);
     setShowPopup(false); // Close the popup after submission
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: { target: { id: any; value: any; }; }) => {
     const { id, value } = event.target;
     setFormData({ ...formData, [id]: value });
   };
