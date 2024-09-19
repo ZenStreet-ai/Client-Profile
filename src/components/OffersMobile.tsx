@@ -1,18 +1,18 @@
 const tagStyle = {
-	padding: "16px",
-	border: "2px solid #0044FA",
-	borderRadius: "90px",
+	padding: "10px",
+	border: "1px solid #0044FA",
+	borderRadius: "45px",
 	backgroundColor: "#fff",
-	fontSize: "18px",
+	fontSize: "12px",
 	lineHeight: "27px",
-	color: "#0A2D4C"
+	color: "#0A2D4C",
 };
 
-const Offers = () => {
+const OffersMobile = () => {
 	return (
-		<section className="space-y-[18px]">
-			<h2 className="leading-9 text-[24px]">I offer therapy for</h2>
-			<div className="flex flex-wrap gap-[10px]">
+		<section className="space-y-[14px] py-5">
+			<h2 className="leading-5 text-[16px]">I offer therapy for</h2>
+			<div className="flex flex-wrap gap-[5px]">
 				<span style={tagStyle}>Stress Management</span>
 				<span style={tagStyle}>Relationship Skills</span>
 				<span style={tagStyle}>Anxiety Reduction</span>
@@ -24,4 +24,4 @@ const Offers = () => {
 	);
 };
 
-export default Offers;
+export default OffersMobile;

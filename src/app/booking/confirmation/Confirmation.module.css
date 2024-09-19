@@ -1,0 +1,112 @@
+/* Container for the whole page */
+.confirmationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Heading */
+.confirmationHeading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -2px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Congratulations message */
+.congratulationsMessage {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  max-width: 660px;
+  margin-bottom: 20px;
+}
+
+/* Instructions section */
+.instructions {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  text-align: left;
+  width: 660px;
+  margin-bottom: 20px;
+}
+
+/* Instruction list */
+.instructionList {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Back to Home Button */
+.backHomeBtn {
+  width: 630px;
+  height: 64px;
+  padding: 14px 22px;
+  gap: 10px;
+  border-radius: 12px;
+  background-color: #1F9FE6;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Adjust container padding */
+  .confirmationContainer {
+    padding: 20px;
+  }
+
+  /* Heading adjustments for smaller screens */
+  .confirmationHeading {
+    font-size: 36px;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  /* Adjust congratulations message width and font size */
+  .congratulationsMessage {
+    font-size: 16px;
+    max-width: 100%; /* Full width on mobile */
+    margin-bottom: 16px;
+  }
+
+  /* Instructions section adjustments */
+  .instructions {
+    font-size: 14px;
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 16px;
+  }
+
+  /* Instruction list spacing */
+  .instructionList {
+    margin-left: 15px;
+    margin-bottom: 16px;
+  }
+
+  /* Back to Home Button adjustments for mobile */
+  .backHomeBtn {
+    width: 100%; /* Full width */
+    font-size: 16px;
+    height: 56px;
+  }
+}

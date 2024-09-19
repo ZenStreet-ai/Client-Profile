@@ -1,0 +1,8 @@
+/* booking/BookingLayout.css */
+.booking-layout {
+  /* Add layout-specific styles here */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
