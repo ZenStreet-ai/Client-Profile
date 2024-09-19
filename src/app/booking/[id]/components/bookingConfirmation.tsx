@@ -3,22 +3,26 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"; // 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import styles from './BookingConfirmation.module.css';
+import styles from "./BookingConfirmation.module.css";
 import { useSearchParams } from "next/navigation";
 
-const ConfirmBookingComponent = ({ selectedSlot, selectedDate }:{selectedSlot:string|undefined, selectedDate:Date|undefined}) => {
-
-
+const ConfirmBookingComponent = ({
+  selectedSlot,
+  selectedDate,
+}: {
+  selectedSlot: string | undefined;
+  selectedDate: Date | undefined;
+}) => {
   const [showPopup, setShowPopup] = useState(false);
   const [slotSelected, setSlotSelected] = useState(false);
   const [isPartneringCompany, setIsPartneringCompany] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    companyDetails: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    companyDetails: "",
+    message: "",
   });
 
   useEffect(() => {
@@ -31,27 +35,33 @@ const ConfirmBookingComponent = ({ selectedSlot, selectedDate }:{selectedSlot:st
     }
   };
 
-  const handleSubmit = (event: { preventDefault: () => void; }) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     // Add your form submission logic here, e.g., API call
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setShowPopup(false); // Close the popup after submission
   };
 
-  const handleChange = (event: { target: { id: any; value: any; }; }) => {
+  const handleChange = (event: { target: { id: any; value: any } }) => {
     const { id, value } = event.target;
     setFormData({ ...formData, [id]: value });
   };
 
   // Format selectedDate to a readable format
-  const formattedDate = selectedDate ? selectedDate.toLocaleDateString('en-US', { weekday: 'short', day: '2-digit', month: 'short' }) : "Select a date";
+  const formattedDate = selectedDate
+    ? selectedDate.toLocaleDateString("en-US", {
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+      })
+    : "Select a date";
   const price = "$2400"; // Assuming static price for now
 
   return (
     <div className={styles.container}>
       <Button
         onClick={handleConfirmBooking}
-        className={`${styles.buttonProceed} ${!slotSelected ? styles.buttonDisabled : ''}`}
+        className={`${styles.buttonProceed} ${!slotSelected ? styles.buttonDisabled : ""}`}
         disabled={!slotSelected}
       >
         Proceed
@@ -71,19 +81,19 @@ const ConfirmBookingComponent = ({ selectedSlot, selectedDate }:{selectedSlot:st
 
           <form className={styles.dialogForm} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
-              <Input 
-                id="firstName" 
-                placeholder="First Name" 
-                required 
-                value={formData.firstName} 
-                onChange={handleChange} 
+              <Input
+                id="firstName"
+                placeholder="First Name"
+                required
+                value={formData.firstName}
+                onChange={handleChange}
               />
-              <Input 
-                id="lastName" 
-                placeholder="Last Name" 
-                required 
-                value={formData.lastName} 
-                onChange={handleChange} 
+              <Input
+                id="lastName"
+                placeholder="Last Name"
+                required
+                value={formData.lastName}
+                onChange={handleChange}
               />
             </div>
 
@@ -147,10 +157,7 @@ const ConfirmBookingComponent = ({ selectedSlot, selectedDate }:{selectedSlot:st
             />
 
             <div className="flex justify-center">
-              <Button
-                type="submit"
-                className={styles.buttonBook}
-              >
+              <Button type="submit" className={styles.buttonBook}>
                 Book Session
               </Button>
             </div>
