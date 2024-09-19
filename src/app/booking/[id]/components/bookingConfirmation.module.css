@@ -1,0 +1,182 @@
+/* Container for the whole component */
+.container {
+  display: flex; 
+  flex-direction: row;
+  background-color: #f0f4f8;
+  padding: 20px; 
+}
+
+/* Style settings for the Proceed button */
+.buttonProceed {
+  background-color: #0085D0;
+  color: white;
+  width: 881px; /* Adjusted width */
+  height: 64px;
+  padding: 14px 0 0 0;
+  gap: 10px;
+  border-radius: 12px;
+  opacity: 1;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Style for the button when disabled */
+.buttonDisabled {
+  background-color: #B7B7B7;
+  color: white;
+  width: 881px; /* Adjusted width */
+  height: 64px;
+  padding: 14px 0 0 0;
+  gap: 10px;
+  border-radius: 12px;
+  opacity: 0.5;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* BookingConfirmation.module.css */
+.dialogTitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+  width: 881px; /* Adjusted width */
+}
+
+/* Dialog content styles */
+.dialogContent {
+  width: 881px; /* Adjusted width */
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Dialog header remains the same */
+.dialogHeader {
+  width: 881px;
+  height: 141px;
+  margin-left: -3px;
+  background-color: #1F9FE6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 8px 8px 0 0;
+  color: white;
+}
+
+/* Styles for input containers */
+.inputContainer {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+  margin-bottom: 16px;
+  width: 881px; /* Adjusted width */
+}
+
+/* Styles for individual input fields */
+.inputField {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 16px;
+  margin-left: 10px;
+  width: 881px; /* Adjusted width */
+}
+
+/* Styles for checkbox and its container */
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+  margin-bottom: 16px;
+  width: 881px; /* Adjusted width */
+}
+
+/* Checkbox label style */
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0085D0;
+  color: white;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1.2px solid #0085D0;
+  margin-left: 10px;
+  margin-bottom: 16px;
+}
+
+/* Company details input style */
+.companyDetails {
+  flex: 1;
+  height: 56px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1.2px solid #0085D0;
+  margin-bottom: 16px;
+  margin-left: 10px;
+  width: 881px; /* Adjusted width */
+}
+
+/* Message info style */
+.messageInfo {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 19.92px;
+  text-align: left;
+  color: #868686;
+  margin-bottom: 16px;
+  margin-left: 10px;
+  width: 881px; /* Adjusted width */
+}
+
+/* Textarea style */
+.textarea {
+  width: 881px; /* Adjusted width */
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 16px;
+}
+
+/* Full width input fields style */
+.fullWidth {
+  width: 881px; /* Adjusted width */
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 16px;
+}
+
+/* Book button style */
+.buttonBook {
+  background-color: #B7B7B7;
+  color: white;
+  width: 881px; /* Adjusted width */
+  height: 70px;
+  padding: 18px 30px;
+  border-radius: 12px;
+  opacity: 1;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
