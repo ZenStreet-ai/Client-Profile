@@ -2,8 +2,7 @@
 
 import React, { Suspense, useState } from "react";
 import { Progress } from "@/components/ui/progress";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SelectedSlot = () => {
   const searchParams = useSearchParams();
