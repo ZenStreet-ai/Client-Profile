@@ -1,7 +1,7 @@
 import React from "react";
 import { Input } from "./ui/input";
-import {Label} from "./ui/label"
-import {Toast} from "./ui/toast"
+import { Label } from "./ui/label";
+import { Toast } from "./ui/toast";
 
 interface CustomInputProps {
   label: string;
@@ -28,10 +28,8 @@ const CustomInput: React.FC<CustomInputProps> = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={
-          `border rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-          ${error ? "border-red-500" : "border-gray-300"}`
-        }
+        className={`border rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ${error ? "border-red-500" : "border-gray-300"}`}
       />
       {error && <Toast className="text-red-500 text-sm">{error}</Toast>}
     </div>
