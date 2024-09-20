@@ -48,7 +48,9 @@ const Page = () => {
 
       {/* Right Section */}
       <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center p-6 lg:p-8">
-        <h2 className="text-2xl lg:text-3xl font-bold mb-6">Login to ZenStreet.ai</h2>
+        <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+          Login to ZenStreet.ai
+        </h2>
         {/* Google Login Button */}
         <button className="bg-white border border-gray-300 rounded-full flex items-center justify-center px-4 lg:px-6 py-2 shadow-md mb-6">
           <img
@@ -73,4 +75,3 @@ const Page = () => {
 };
 
 export default Page;
-
