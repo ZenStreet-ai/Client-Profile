@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+import Progress from "./progress";
 import Calendar from "react-calendar";
 import timingsData from "./timings.json";
 import InPerson from "../assets/InPerson"; // In-Person icon
@@ -134,9 +134,9 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="therapy-opt">
-      <div className="mobile-progress-bar">
-        <Progress value={33} className="progress-bar" />
-      </div>
+      {isMobile && (
+        <Progress value={33} className="mb-4" />
+      )}
 
       <h1 className="ther-bold" style={{ fontSize: "20px" }}>
         Please select therapy mode
@@ -183,46 +183,46 @@ const ButtonGroupComponent = ({ params }: { params: { id: string } }) => {
       </div>
 
       <div className="filter-options">
-        <h1 className="ther-bold">Filter by</h1>
-        {isMobile ? (
-          <div className="therapy-center mobile-filter">
-            <label className={filterOption === "slot" ? "selected-option" : ""}>
-              <input
-                type="radio"
-                name="filterOption"
-                value="slot"
-                checked={filterOption === "slot"}
-                onChange={() => setFilterOption("slot")}
-              />
-              Slot
-            </label>
-            <label className={filterOption === "date" ? "selected-option" : ""}>
-              <input
-                type="radio"
-                name="filterOption"
-                value="date"
-                checked={filterOption === "date"}
-                onChange={() => setFilterOption("date")}
-              />
-              Date
-            </label>
-          </div>
-        ) : (
-          <div className="therapy-center">
-            <Button
-              onClick={() => setFilterOption("slot")}
-              className={filterOption === "slot" ? "selected-filter" : ""}
-            >
-              Slot
-            </Button>
-            <Button
-              onClick={() => setFilterOption("date")}
-              className={filterOption === "date" ? "selected-filter" : ""}
-            >
-              Date
-            </Button>
-          </div>
-        )}
+        {!isMobile && <h1 className="ther-bold">Filter by</h1>}
+          {isMobile ? (
+            <div className="mobile-filter">
+              <label className={filterOption === "slot" ? "selected-option" : ""}>
+                <input
+                  type="radio"
+                  name="filterOption"
+                  value="slot"
+                  checked={filterOption === "slot"}
+                  onChange={() => setFilterOption("slot")}
+                />
+                Slots
+              </label>
+              <label className={filterOption === "date" ? "selected-option" : ""}>
+                <input
+                  type="radio"
+                  name="filterOption"
+                  value="date"
+                  checked={filterOption === "date"}
+                  onChange={() => setFilterOption("date")}
+                />
+                Date
+              </label>
+            </div>
+          ) : (
+            <div className="therapy-center">
+              <Button
+                onClick={() => setFilterOption("slot")}
+                className={filterOption === "slot" ? "selected-filter" : ""}
+              >
+                Slot
+              </Button>
+              <Button
+                onClick={() => setFilterOption("date")}
+                className={filterOption === "date" ? "selected-filter" : ""}
+              >
+                Date
+              </Button>
+            </div>
+          )}
       </div>
 
       {/* Slot and Calendar Display based on filterOption */}

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Progress.css"; // Import the CSS file for styling
 
 interface ProgressProps {
   value: number;
@@ -8,8 +7,11 @@ interface ProgressProps {
 
 const Progress: React.FC<ProgressProps> = ({ value, className }) => {
   return (
-    <div className={`progress-bar-container ${className}`}>
-      <div className="progress-bar-fill" style={{ width: `${value}%` }}></div>
+    <div className={`w-full bg-gray-200 rounded-lg h-1 overflow-hidden ${className}`}>
+      <div
+        className="bg-black h-full transition-all duration-300 ease-linear"
+        style={{ width: `${value}%` }}
+      ></div>
     </div>
   );
 };
