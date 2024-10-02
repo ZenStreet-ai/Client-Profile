@@ -11,7 +11,7 @@ const CustomWrapper = (props: Props) => {
     <section>
       <h2
         // style={{ marginBottom: "1rem", fontSize: "1.5rem", fontWeight: "bold" }}
-        className="leading-9 text-[24px]"
+        className="leading-9 text-[24px] mb-2"
       >
         {title}
       </h2>

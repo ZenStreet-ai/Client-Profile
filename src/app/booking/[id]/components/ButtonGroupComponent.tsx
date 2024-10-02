@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Progress from "./progress";
+import Progress from "./Progress";
 import Calendar from "react-calendar";
 import timingsData from "./timings.json";
 import InPerson from "../assets/InPerson"; // In-Person icon

@@ -42,7 +42,7 @@ const credentials = [
 const Credentials = () => {
   return (
     <div>
-      <h2 className="leading-5 text-[24px]">Credentials</h2>
+      <h2 className="leading-5 text-[24px] mb-2">Credentials</h2>
       <ul className="space-y-4 pt-4">
         {credentials.map((credential) => (
           <li key={credential.id} className="flex items-start space-x-[14px]">

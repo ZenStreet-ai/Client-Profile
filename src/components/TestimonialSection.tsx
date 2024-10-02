@@ -31,7 +31,7 @@ const TestimonialWrapper = ({ testimonials }: TestimonialWrapperProps) => {
     <div className="w-full h-[409px]">
       <h2 className="text-[24px] leading-9 p-3">Client Testimonials</h2>
       <div className="">
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 pb-10">
           {testimonials.map((testimonial) => (
             <Testimonial key={testimonial.id} {...testimonial} />
           ))}
