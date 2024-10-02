@@ -14,6 +14,7 @@ import OffersMobile from "./OffersMobile";
 import TestimonialWrapperMobile from "./TestimonialMobileSection";
 import { TestimonialProps } from "./TestimonialSection";
 import MobileTopBar from "./MobileNav";
+import Description from "./Description";
 
 const credentials = [
   {
@@ -87,19 +88,13 @@ const testimonials: TestimonialProps[] = [
   },
 ];
 
-const ProfileComponentMobile = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const ProfileComponentMobile = ({ params }: { params: { id: string } }) => {
 
   const aboutMeText = `Hello, I'm Swetha, a licensed therapist dedicated to guiding individuals through life's
     challenges with empathy and expertise. With over 10 years of experience, I specialize in helping
     clients manage anxiety, depression, and relationship issues through personalized, evidence-based
     practices.`;
 
-  const truncatedText =
-    aboutMeText.length > 350
-      ? aboutMeText.substring(0, 350) + "..."
-      : aboutMeText;
-  const shouldShowReadLess = aboutMeText.length > 350;
   return (
     <div className="w-full h-screen">
       <MobileTopBar />
@@ -122,18 +117,7 @@ const ProfileComponentMobile = () => {
         </div>
         <div className="flex-1 space-y-[8px] mx-5">
           <div className="w-full h-[107px]">
-            <p className="text-[16px] leading-3 w-full h-[19px]">About Me</p>
-            <p className="text-[#787B7E] text-[12px] leading-4 w-full">
-              {isExpanded ? aboutMeText : truncatedText}
-              {shouldShowReadLess && (
-                <button
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  className="text-blue-500 ml-2"
-                >
-                  {isExpanded ? "Read Less" : "Read More"}
-                </button>
-              )}
-            </p>
+          <Description aboutMeText={aboutMeText} isLaptop={false} />
           </div>
           <div>
             <h2 className="leading-5 text-[16x]">Credentials</h2>
