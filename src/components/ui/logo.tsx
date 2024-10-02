@@ -26,15 +26,9 @@ const Logo = () => {
           width="1"
           height="1"
         >
-          <use
-            transform="matrix(0.000952776 0 0 0.000938967 -0.00782938 0)"
-          />
+          <use transform="matrix(0.000952776 0 0 0.000938967 -0.00782938 0)" />
         </pattern>
-        <image
-          id="image0_2354_97"
-          width="1066"
-          height="1065"
-        />
+        <image id="image0_2354_97" width="1066" height="1065" />
       </defs>
     </svg>
   );
