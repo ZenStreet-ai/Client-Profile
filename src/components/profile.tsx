@@ -5,10 +5,9 @@ import ProfileComponentLaptop from "@/components/ProfileComponentLaptop";
 import ProfileComponentMobile from "@/components/ProfileComponentMobile";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-
 const Profile = ({ params }: { params: { id: string } }) => {
   const isLaptop = useMediaQuery("(min-width: 768px)");
-  
+
   return (
     <div>
       {isLaptop ? (

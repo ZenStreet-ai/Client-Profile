@@ -15,7 +15,10 @@ const ProfileCardButton = ({ id }: ClientButtonsProps) => {
         size="primary"
         className="w-full text-[#0069D5] py-[0.8rem] px-[1.5rem]"
       >
-        <Link href={`/booking/${id}`} className="w-[153px] h-[36px] text-[1.25rem] leading-9">
+        <Link
+          href={`/booking/${id}`}
+          className="w-[153px] h-[36px] text-[1.25rem] leading-9"
+        >
           Book session
         </Link>
       </CustomButton>

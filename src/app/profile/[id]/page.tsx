@@ -1,8 +1,5 @@
-
 import Profile from "@/components/profile";
-import  {
-  TestimonialProps,
-} from "@/components/TestimonialSection";
+import { TestimonialProps } from "@/components/TestimonialSection";
 
 // import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -54,9 +51,7 @@ export const metadata: Metadata = {
 };
 
 const ProfilePage = ({ params }: { params: { id: string } }) => {
-  return (
-    <Profile params={params}/>
-  )
+  return <Profile params={params} />;
 };
 
 export default ProfilePage;

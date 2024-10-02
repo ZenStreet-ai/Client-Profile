@@ -305,5 +305,5 @@ export {
   Twitter,
   Whatsapp,
   QuotesMobile,
-  NotFound404
+  NotFound404,
 };

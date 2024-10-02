@@ -1,7 +1,13 @@
 "use client";
 import React, { useState } from "react";
 
-const Description = ({ aboutMeText,isLaptop=true }: { aboutMeText: string,isLaptop?:boolean }) => {
+const Description = ({
+  aboutMeText,
+  isLaptop = true,
+}: {
+  aboutMeText: string;
+  isLaptop?: boolean;
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const truncatedText =
     aboutMeText.length > 350

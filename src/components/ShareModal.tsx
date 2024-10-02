@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Envelope, Facebook, Twitter, Whatsapp } from "@/assets/icons";
 import {

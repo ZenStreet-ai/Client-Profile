@@ -89,7 +89,6 @@ const testimonials: TestimonialProps[] = [
 ];
 
 const ProfileComponentMobile = ({ params }: { params: { id: string } }) => {
-
   const aboutMeText = `Hello, I'm Swetha, a licensed therapist dedicated to guiding individuals through life's
     challenges with empathy and expertise. With over 10 years of experience, I specialize in helping
     clients manage anxiety, depression, and relationship issues through personalized, evidence-based
@@ -117,7 +116,7 @@ const ProfileComponentMobile = ({ params }: { params: { id: string } }) => {
         </div>
         <div className="flex-1 space-y-[8px] mx-5">
           <div className="w-full h-[107px]">
-          <Description aboutMeText={aboutMeText} isLaptop={false} />
+            <Description aboutMeText={aboutMeText} isLaptop={false} />
           </div>
           <div>
             <h2 className="leading-5 text-[16x]">Credentials</h2>

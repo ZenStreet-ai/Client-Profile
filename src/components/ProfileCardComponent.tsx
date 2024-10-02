@@ -4,7 +4,7 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 import { Button } from "./ui/button";
 import ShareModal from "./ShareModal";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 import ProfileCardButton from "./ProfileCardButton";
 
 interface ProfileCardProps {
@@ -24,7 +24,7 @@ const ProfileCard = ({
   rate,
   location,
   imageUrl,
-  id
+  id,
 }: ProfileCardProps) => {
   return (
     <Card className="max-w-xl mx-auto w-[571px] h-[1020px] bg-[#1F9FE6] shadow-lg overflow-hidden relative">
